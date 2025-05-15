@@ -1,0 +1,83 @@
+---
+title: "SBL Survey Analysis"
+output:
+  html_document:
+    toc: yes
+---
+
+------------------------------------------------------------------------
+
+# Supplementary Material Chapter 4
+
+**Author:** Michael S. Feurstein\
+**Created:** 15 May 2025\
+**Last compiled:** `r format(Sys.time(), '%d %B %Y')`
+
+------------------------------------------------------------------------
+
+## About this notebook
+
+This notebook is a supplementary material for Chapter "Perceived Usability Survey" used for replication of results. Data preparation steps have been done before. All further details on survey design, methodology and analysis procedure can be found in the corresponding Chapter of thesis.
+
+------------------------------------------------------------------------
+
+### Libraries
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+```
+
+### Load Data
+
+The following imported file named ***"data_survey_prepared.csv"*** contains main measurements being the calculated sus-score and the ranking.
+
+```{r}
+# read from data_survey_prepared.csv
+df <- read.csv("data-survey-sus_prepared.csv")
+```
+
+## Descriptive Statistics
+
+### Dependent Variables
+
+#### Usability (SUS Score)
+
+**Boxplot:** Visual inspection of data, using a boxplot.
+```{r}
+par(mar=c(5, 5, 3, 2))
+boxplot(sus ~ notation, data = df, main = "Usability (System Usability Scale)", xlab = "Notation", ylab = "SUS score", names = c("CNL","KV","SC"))
+```
+
+**Summary:** For reporting of mean (min, q1, mdn, q2, max) and sd:
+```{r}
+df %>%
+  group_by(notation) %>%
+  summarize(mean = mean(sus), sd = sd(sus), min = min(sus), max = max(sus), med = median(sus), q1 = quantile(sus, 0.25), q3 = quantile(sus, 0.75))
+```
+
+**Mean Difference:** For reporting of unstandardized mean difference:
+```{r}
+##### mean difference ####
+# values
+sus_cnl <- mean(df$sus[df$notation == "cnl"])
+sus_kv <- mean(df$sus[df$notation == "kv"])
+sus_sc <- mean(df$sus[df$notation == "sc"])
+# difference between cnl kv: cnl-kv
+sus_diffcnlkv <- sus_cnl-sus_kv
+# avergae of nl kv
+sus_avgcnlkv <- (sus_cnl+sus_kv)/2
+sus_ratiocnlkv <- sus_diffcnlkv/sus_avgcnlkv
+# percentage
+sus_percent_diff_cnlkv <- abs(sus_ratiocnlkv*100)
+print(c("CNL/KV mean difference in percentage: ", sus_percent_diff_cnlkv))
+
+# difference between sc kv: sc-kv
+sus_diffsckv <- sus_sc-sus_kv
+# avergae of nl kv
+sus_avgsckv <- (sus_sc+sus_kv)/2
+sus_ratiosckv <- sus_diffsckv/sus_avgsckv
+# percentage
+sus_percent_diff_sckv <- abs(sus_ratiosckv*100)
+print(c("SC/KV mean difference in percentage: ", sus_percent_diff_sckv))
+```
+
