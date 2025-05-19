@@ -1,27 +1,18 @@
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+library(tidyr)
+library(dplyr)
 
 ###
-### Approach 1: IMPORT DATA from prepared excel csv ####
-###
-## Currently using approach 1:
-## Reason is that alot of data has already been calculated (SUS score) before 
-
-### using prepared excel data
-mydata <- read.csv("data-survey-sus_export.csv", sep = ",", header = TRUE)
-
-# boxcox transform sus
-mydata$sus.boxcox = (mydata$sus^3.2-1)/3.2
-
-# write to csv so we don't need to run above lines too often
-write.csv(mydata, "../data-survey-sus_prepared.csv")
-
-###
-### Approach 2: IMPORT DATA from limesurvey csv dump ####
+### data import: initial ####
 ###
 
 mydata <- read.csv("results-survey623939-anon.csv", sep = ",", header = TRUE)
 
-# Preparing data_survey_prepared.csv
+###
+### data-prepared: prepare data from limesurvey csv dump ####
+###
+
+# Preparing data-survey-sus_prepared.csv
 # header: subject, id, seed, notation, sus
 
 # create running index (subject)
@@ -133,14 +124,308 @@ df_prep$sus.boxcox = (df_prep$sus^3.2-1)/3.2
 # write to csv so we don't need to run above lines too often
 write.csv(df_prep, "../data-survey-sus_prepared.csv")
 
+###
+### data-sus-tidy: prepare tidy sus data csv's for graphs ####
+###
+### note: this is currently quite repetitive
+### can be improved with functions (currently no time)
+###
+### sc: script based
+### cnl: controlled-natural language
+### kv: key-value based
+###
 
-### for later use:
+# get only the likert responses for: sc,cnl,kv
+df_sc <- df_sc_sus[,1:10]
+df_cnl <- df_cnl_sus[,1:10]
+df_kv <- df_kv_sus[,1:10]
 
-# add labels to numbers
-for (i in 3:ncol(df)) {
-  df[, i] <- factor(df[, i], levels=c("1","2","3","4","5"),labels=c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree'))
+responseMapping <- c("1" = "A1", "2" = "A2", "3" = "A3", "4" = "A4", "5" = "A5")
+
+# prepare in same style as R export from limesurvey
+for (i in 1:ncol(df_sc)) {
+  df_sc[, i] <- responseMapping[df_sc[, i]]
+  df_sc[, i] <- as.character(df_sc[, i])
+  df_sc[, i] <- factor(df_sc[, i], levels=c("A1","A2","A3","A4","A5"),labels=c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree'))
 }
 
+for (i in 1:ncol(df_cnl)) {
+  df_cnl[, i] <- responseMapping[df_cnl[, i]]
+  df_cnl[, i] <- as.character(df_cnl[, i])
+  df_cnl[, i] <- factor(df_cnl[, i], levels=c("A1","A2","A3","A4","A5"),labels=c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree'))
+}
 
+for (i in 1:ncol(df_kv)) {
+  df_kv[, i] <- responseMapping[df_kv[, i]]
+  df_kv[, i] <- as.character(df_kv[, i])
+  df_kv[, i] <- factor(df_kv[, i], levels=c("A1","A2","A3","A4","A5"),labels=c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree'))
+}
+
+# check - should be character coded in A1:A5
+#sapply(df_sc, mode)
+
+# manually code columns and data based on limesurvey
+# SC
+# 1
+attributes(df_sc)$variable.labels[1] <- "[I think that I would like to use this notation frequently.] Please answer the following questions about the notation you just used:"
+names(df_sc)[1] <- "PQ1. I think that I would like to use this notation frequently."
+# 2
+attributes(df_sc)$variable.labels[2] <- "[I find the notation unnecessarily complex.] Please answer the following questions about the notation you just used:"
+names(df_sc)[2] <- "NQ1. I find the notation unnecessarily complex."
+# 3
+attributes(df_sc)$variable.labels[3] <- "[I think the notation would be easy to use.] Please answer the following questions about the notation you just used:"
+names(df_sc)[3] <- "PQ2. I think the notation would be easy to use."
+# 4
+attributes(df_sc)$variable.labels[4] <- "[I think that I would need the support of a technical person*** to be able to use this notation.] Please answer the following questions about the notation you just used:"
+names(df_sc)[4] <- "NQ2. I think that I would need the support of a technical person to be able to use this notation."
+# 5
+attributes(df_sc)$variable.labels[5] <- "[I find the various functions* in this notation are well integrated.] Please answer the following questions about the notation you just used:"
+names(df_sc)[5] <- "PQ3. I find the various functions in this notation are well integrated."
+# 6
+attributes(df_sc)$variable.labels[6] <- "[I think there is too much inconsistency** in this notation.] Please answer the following questions about the notation you just used:"
+names(df_sc)[6] <- "NQ3. I think there is too much inconsistency in this notation."
+# 7
+attributes(df_sc)$variable.labels[7] <- "[I would imagine that most people would learn to use this notation very quickly.] Please answer the following questions about the notation you just used:"
+names(df_sc)[7] <- "PQ4. I would imagine that most people would learn to use this notation very quickly."
+# 8
+attributes(df_sc)$variable.labels[8] <- "[I would find the notation very cumbersome to use.] Please answer the following questions about the notation you just used:"
+names(df_sc)[8] <- "NQ4. I would find the notation very cumbersome to use."
+# 9
+attributes(df_sc)$variable.labels[9] <- "[I would feel very confident using the notation.] Please answer the following questions about the notation you just used:"
+names(df_sc)[9] <- "PQ5. I would feel very confident using the notation."
+# 10
+attributes(df_sc)$variable.labels[10] <- "[I would need to learn a lot of things before I could get going with this notation.] Please answer the following questions about the notation you just used:"
+names(df_sc)[10] <- "NQ5. I would need to learn a lot of things before I could get going with this notation."
+
+# CNL
+# 1
+attributes(df_cnl)$variable.labels[1] <- "[I think that I would like to use this notation frequently.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[1] <- "PQ1. I think that I would like to use this notation frequently."
+# 2
+attributes(df_cnl)$variable.labels[2] <- "[I find the notation unnecessarily complex.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[2] <- "NQ1. I find the notation unnecessarily complex."
+# 3
+attributes(df_cnl)$variable.labels[3] <- "[I think the notation would be easy to use.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[3] <- "PQ2. I think the notation would be easy to use."
+# 4
+attributes(df_cnl)$variable.labels[4] <- "[I think that I would need the support of a technical person*** to be able to use this notation.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[4] <- "NQ2. I think that I would need the support of a technical person to be able to use this notation."
+# 5
+attributes(df_cnl)$variable.labels[5] <- "[I find the various functions* in this notation are well integrated.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[5] <- "PQ3. I find the various functions in this notation are well integrated."
+# 6
+attributes(df_cnl)$variable.labels[6] <- "[I think there is too much inconsistency** in this notation.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[6] <- "NQ3. I think there is too much inconsistency in this notation."
+# 7
+attributes(df_cnl)$variable.labels[7] <- "[I would imagine that most people would learn to use this notation very quickly.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[7] <- "PQ4. I would imagine that most people would learn to use this notation very quickly."
+# 8
+attributes(df_cnl)$variable.labels[8] <- "[I would find the notation very cumbersome to use.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[8] <- "NQ4. I would find the notation very cumbersome to use."
+# 9
+attributes(df_cnl)$variable.labels[9] <- "[I would feel very confident using the notation.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[9] <- "PQ5. I would feel very confident using the notation."
+# 10
+attributes(df_cnl)$variable.labels[10] <- "[I would need to learn a lot of things before I could get going with this notation.] Please answer the following questions about the notation you just used:"
+names(df_cnl)[10] <- "NQ5. I would need to learn a lot of things before I could get going with this notation."
+
+# KV
+# 1
+attributes(df_kv)$variable.labels[1] <- "[I think that I would like to use this notation frequently.] Please answer the following questions about the notation you just used:"
+names(df_kv)[1] <- "PQ1. I think that I would like to use this notation frequently."
+# 2
+attributes(df_kv)$variable.labels[2] <- "[I find the notation unnecessarily complex.] Please answer the following questions about the notation you just used:"
+names(df_kv)[2] <- "NQ1. I find the notation unnecessarily complex."
+# 3
+attributes(df_kv)$variable.labels[3] <- "[I think the notation would be easy to use.] Please answer the following questions about the notation you just used:"
+names(df_kv)[3] <- "PQ2. I think the notation would be easy to use."
+# 4
+attributes(df_kv)$variable.labels[4] <- "[I think that I would need the support of a technical person*** to be able to use this notation.] Please answer the following questions about the notation you just used:"
+names(df_kv)[4] <- "NQ2. I think that I would need the support of a technical person to be able to use this notation."
+# 5
+attributes(df_kv)$variable.labels[5] <- "[I find the various functions* in this notation are well integrated.] Please answer the following questions about the notation you just used:"
+names(df_kv)[5] <- "PQ3. I find the various functions in this notation are well integrated."
+# 6
+attributes(df_kv)$variable.labels[6] <- "[I think there is too much inconsistency** in this notation.] Please answer the following questions about the notation you just used:"
+names(df_kv)[6] <- "NQ3. I think there is too much inconsistency in this notation."
+# 7
+attributes(df_kv)$variable.labels[7] <- "[I would imagine that most people would learn to use this notation very quickly.] Please answer the following questions about the notation you just used:"
+names(df_kv)[7] <- "PQ4. I would imagine that most people would learn to use this notation very quickly."
+# 8
+attributes(df_kv)$variable.labels[8] <- "[I would find the notation very cumbersome to use.] Please answer the following questions about the notation you just used:"
+names(df_kv)[8] <- "NQ4. I would find the notation very cumbersome to use."
+# 9
+attributes(df_kv)$variable.labels[9] <- "[I would feel very confident using the notation.] Please answer the following questions about the notation you just used:"
+names(df_kv)[9] <- "PQ5. I would feel very confident using the notation."
+# 10
+attributes(df_kv)$variable.labels[10] <- "[I would need to learn a lot of things before I could get going with this notation.] Please answer the following questions about the notation you just used:"
+names(df_kv)[10] <- "NQ5. I would need to learn a lot of things before I could get going with this notation."
+
+# now create a tidy df for each: sc,cnl,kv
+# source: https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html
+
+#
+# SC
+#
+
+df_sc_tidy <- df_sc %>% 
+  pivot_longer(
+    1:10, 
+    names_to = "question", 
+    values_to = "answer"
+  )
+
+df_sc_tidy <- df_sc_tidy %>% arrange(match(question, 
+                                           c("PQ1. I think that I would like to use this notation frequently.",
+                                             "NQ1. I find the notation unnecessarily complex.",
+                                             "PQ2. I think the notation would be easy to use.",
+                                             "NQ2. I think that I would need the support of a technical person to be able to use this notation.",
+                                             "PQ3. I find the various functions in this notation are well integrated.",
+                                             "NQ3. I think there is too much inconsistency in this notation.",
+                                             "PQ4. I would imagine that most people would learn to use this notation very quickly.",
+                                             "NQ4. I would find the notation very cumbersome to use.",
+                                             "PQ5. I would feel very confident using the notation.",
+                                             "NQ5. I would need to learn a lot of things before I could get going with this notation.")))
+
+df_sc_tidy <- df_sc_tidy %>% mutate(question = factor(question, 
+                                                    levels = c("PQ5. I would feel very confident using the notation.",
+                                                               "PQ4. I would imagine that most people would learn to use this notation very quickly.",
+                                                               "PQ3. I find the various functions in this notation are well integrated.",
+                                                               "PQ2. I think the notation would be easy to use.",
+                                                               "PQ1. I think that I would like to use this notation frequently.",
+                                                               "NQ5. I would need to learn a lot of things before I could get going with this notation.",
+                                                               "NQ4. I would find the notation very cumbersome to use.",
+                                                               "NQ3. I think there is too much inconsistency in this notation.",
+                                                               "NQ2. I think that I would need the support of a technical person to be able to use this notation.",
+                                                               "NQ1. I find the notation unnecessarily complex.")))
+
+# Add new column named 'notion' based on positive or negative framing of question
+# Source: https://stackoverflow.com/q/50001383/693052
+df_sc_tidy <- df_sc_tidy %>%
+  mutate(
+    notion = case_when(
+      question == "PQ1. I think that I would like to use this notation frequently." ~ "positive",
+      question == "NQ1. I find the notation unnecessarily complex." ~ "negative",
+      question == "PQ2. I think the notation would be easy to use." ~ "positive",
+      question == "NQ2. I think that I would need the support of a technical person to be able to use this notation." ~ "negative",
+      question == "PQ3. I find the various functions in this notation are well integrated." ~ "positive",
+      question == "NQ3. I think there is too much inconsistency in this notation." ~ "negative",
+      question == "PQ4. I would imagine that most people would learn to use this notation very quickly." ~ "positive",
+      question == "NQ4. I would find the notation very cumbersome to use." ~ "negative",
+      question == "PQ5. I would feel very confident using the notation." ~ "positive",
+      question == "NQ5. I would need to learn a lot of things before I could get going with this notation." ~ "negative"
+    )
+  )
+
+#
+# CNL
+#
+
+df_cnl_tidy <- df_cnl %>% 
+  pivot_longer(
+    1:10, 
+    names_to = "question", 
+    values_to = "answer"
+  )
+
+df_cnl_tidy <- df_cnl_tidy %>% arrange(match(question, 
+                                           c("PQ1. I think that I would like to use this notation frequently.",
+                                             "NQ1. I find the notation unnecessarily complex.",
+                                             "PQ2. I think the notation would be easy to use.",
+                                             "NQ2. I think that I would need the support of a technical person to be able to use this notation.",
+                                             "PQ3. I find the various functions in this notation are well integrated.",
+                                             "NQ3. I think there is too much inconsistency in this notation.",
+                                             "PQ4. I would imagine that most people would learn to use this notation very quickly.",
+                                             "NQ4. I would find the notation very cumbersome to use.",
+                                             "PQ5. I would feel very confident using the notation.",
+                                             "NQ5. I would need to learn a lot of things before I could get going with this notation.")))
+
+df_cnl_tidy <- df_cnl_tidy %>% mutate(question = factor(question, 
+                                                      levels = c("PQ5. I would feel very confident using the notation.",
+                                                                 "PQ4. I would imagine that most people would learn to use this notation very quickly.",
+                                                                 "PQ3. I find the various functions in this notation are well integrated.",
+                                                                 "PQ2. I think the notation would be easy to use.",
+                                                                 "PQ1. I think that I would like to use this notation frequently.",
+                                                                 "NQ5. I would need to learn a lot of things before I could get going with this notation.",
+                                                                 "NQ4. I would find the notation very cumbersome to use.",
+                                                                 "NQ3. I think there is too much inconsistency in this notation.",
+                                                                 "NQ2. I think that I would need the support of a technical person to be able to use this notation.",
+                                                                 "NQ1. I find the notation unnecessarily complex.")))
+
+# Add new column named 'notion' based on positive or negative framing of question
+# Source: https://stackoverflow.com/q/50001383/693052
+df_cnl_tidy <- df_cnl_tidy %>%
+  mutate(
+    notion = case_when(
+      question == "PQ1. I think that I would like to use this notation frequently." ~ "positive",
+      question == "NQ1. I find the notation unnecessarily complex." ~ "negative",
+      question == "PQ2. I think the notation would be easy to use." ~ "positive",
+      question == "NQ2. I think that I would need the support of a technical person to be able to use this notation." ~ "negative",
+      question == "PQ3. I find the various functions in this notation are well integrated." ~ "positive",
+      question == "NQ3. I think there is too much inconsistency in this notation." ~ "negative",
+      question == "PQ4. I would imagine that most people would learn to use this notation very quickly." ~ "positive",
+      question == "NQ4. I would find the notation very cumbersome to use." ~ "negative",
+      question == "PQ5. I would feel very confident using the notation." ~ "positive",
+      question == "NQ5. I would need to learn a lot of things before I could get going with this notation." ~ "negative"
+    )
+  )
+
+#
+# KV
+#
+
+df_kv_tidy <- df_kv %>% 
+  pivot_longer(
+    1:10, 
+    names_to = "question", 
+    values_to = "answer"
+  )
+
+df_kv_tidy <- df_kv_tidy %>% arrange(match(question, 
+                                             c("PQ1. I think that I would like to use this notation frequently.",
+                                               "NQ1. I find the notation unnecessarily complex.",
+                                               "PQ2. I think the notation would be easy to use.",
+                                               "NQ2. I think that I would need the support of a technical person to be able to use this notation.",
+                                               "PQ3. I find the various functions in this notation are well integrated.",
+                                               "NQ3. I think there is too much inconsistency in this notation.",
+                                               "PQ4. I would imagine that most people would learn to use this notation very quickly.",
+                                               "NQ4. I would find the notation very cumbersome to use.",
+                                               "PQ5. I would feel very confident using the notation.",
+                                               "NQ5. I would need to learn a lot of things before I could get going with this notation.")))
+
+df_kv_tidy <- df_kv_tidy %>% mutate(question = factor(question, 
+                                                        levels = c("PQ5. I would feel very confident using the notation.",
+                                                                   "PQ4. I would imagine that most people would learn to use this notation very quickly.",
+                                                                   "PQ3. I find the various functions in this notation are well integrated.",
+                                                                   "PQ2. I think the notation would be easy to use.",
+                                                                   "PQ1. I think that I would like to use this notation frequently.",
+                                                                   "NQ5. I would need to learn a lot of things before I could get going with this notation.",
+                                                                   "NQ4. I would find the notation very cumbersome to use.",
+                                                                   "NQ3. I think there is too much inconsistency in this notation.",
+                                                                   "NQ2. I think that I would need the support of a technical person to be able to use this notation.",
+                                                                   "NQ1. I find the notation unnecessarily complex.")))
+
+# Add new column named 'notion' based on positive or negative framing of question
+# Source: https://stackoverflow.com/q/50001383/693052
+df_kv_tidy <- df_kv_tidy %>%
+  mutate(
+    notion = case_when(
+      question == "PQ1. I think that I would like to use this notation frequently." ~ "positive",
+      question == "NQ1. I find the notation unnecessarily complex." ~ "negative",
+      question == "PQ2. I think the notation would be easy to use." ~ "positive",
+      question == "NQ2. I think that I would need the support of a technical person to be able to use this notation." ~ "negative",
+      question == "PQ3. I find the various functions in this notation are well integrated." ~ "positive",
+      question == "NQ3. I think there is too much inconsistency in this notation." ~ "negative",
+      question == "PQ4. I would imagine that most people would learn to use this notation very quickly." ~ "positive",
+      question == "NQ4. I would find the notation very cumbersome to use." ~ "negative",
+      question == "PQ5. I would feel very confident using the notation." ~ "positive",
+      question == "NQ5. I would need to learn a lot of things before I could get going with this notation." ~ "negative"
+    )
+  )
+
+# write to csv so we don't need to run above lines too often
+write.csv(df_sc_tidy, "../sus_sc_likert_tidy.csv")
+write.csv(df_cnl_tidy, "../sus_cnl_likert_tidy.csv")
+write.csv(df_kv_tidy, "../sus_kv_likert_tidy.csv")
 
 
