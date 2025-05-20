@@ -29,14 +29,92 @@ library(dplyr)
 
 ### Load Data
 
-The following imported file named ***"data_survey_prepared.csv"*** contains main measurements being the calculated sus-score and the ranking.
-
+The following imported file named ***"data_survey_prepared.csv"*** contains main measurements being the calculated sus-score.
 ```{r}
-# read from data_survey_prepared.csv
+# read from prepared csv
 df <- read.csv("data-survey-sus_prepared.csv")
 ```
 
+The following is ***participant_profiles_anon_prepared.csv*** contains all anonymized data on participants and their profile (self assessed role: author, user, researcher, other and meta data on activity in field: no of videos, no of papers, no of courses etc.)
+```{r}
+# read from prepared csv
+profiledata <- read.csv("data-survey-profiles_prepared.csv")
+```
+
+
 ## Descriptive Statistics
+
+### Participants
+
+#### Profile
+
+```{r}
+# participant profiles
+profileSums <- colSums(profiledata == "Yes")
+profile_columns = c("Profile","Frequency")
+df_p = data.frame(matrix(nrow = 0, ncol = length(profile_columns))) 
+colnames(df_p) = profile_columns
+df_p[nrow(df_p) + 1,] = c("Author",profileSums["author"])
+df_p[nrow(df_p) + 1,] = c("User",profileSums["user"])
+df_p[nrow(df_p) + 1,] = c("Researcher",profileSums["researcher"])
+df_p[nrow(df_p) + 1,] = c("Other",3) # manual count for profile author:no user:no researcher:no
+
+# convert frequency column into numeric format
+df_p$Frequency = as.numeric(as.character(df_p$Frequency))
+
+# order dataframe ascending
+# this way it's displayed descending in horizontal barplot
+df_p <- df_p[order(df_p$Frequency),] 
+
+# plot barplot
+counts <- table(df_p$Frequency)
+par(mar=c(3, 7, 3, 3))
+profile_plot <- barplot(height=df_p$Frequency, names=df_p$Profile, main="Participant Profiles", horiz=T,las=1,xlim=c(0,50),width = c(2,2,2,2,2))
+text(x=df_p$Frequency, profile_plot, labels = paste(df_p$Frequency), pos=4, offset=0.3, xpd=T)
+```
+
+#### Profile Details
+
+```{r}
+# Author 
+## Years active
+## How many years have you been authoring / producing educational videos, lecture
+## recordings or other video-based learning content?
+profiledata$authorHOWMANYYEARS <- as.numeric(as.character(profiledata$authorHOWMANYYEARS))
+summary(na.omit(profiledata$authorHOWMANYYEARS))
+
+## Videos created 
+## How many educational videos, lecture recordings or other video-based learning
+## content have you produced until now?
+profiledata$authorHOWMANYVIDEOS <- as.numeric(as.character(profiledata$authorHOWMANYVIDEOS))
+summary(na.omit(profiledata$authorHOWMANYVIDEOS))
+
+# User 
+## Years active
+## How many years have you been using video-based learning content?
+profiledata$userHOWMANYYEARS <- as.numeric(as.character(profiledata$userHOWMANYYEARS))
+summary(na.omit(profiledata$userHOWMANYYEARS))
+
+## Courses
+## How many courses have you tought with the support of video-based learning con-
+## tent? Please also count recurring courses, which possibly took place each semester.
+profiledata$userHOWMANYCOURSES <- as.numeric(as.character(profiledata$userHOWMANYCOURSES))
+summary(na.omit(profiledata$userHOWMANYCOURSES))
+
+# Researcher
+## Years researching
+## How many years have you conducted research in the field of video-based learning
+## / technology enhanced learning / educational technology?
+profiledata$researchHOWMANYYEARS <- as.numeric(as.character(profiledata$researchHOWMANYYEARS))
+summary(na.omit(profiledata$researchHOWMANYYEARS))
+
+## Papers published
+## How many papers have you published in the field of video-based learning? 
+profiledata$researchHOWMANYPUB <- as.numeric(as.character(profiledata$researchHOWMANYPUB))
+summary(na.omit(profiledata$researchHOWMANYPUB))
+```
+
+
 
 ### Dependent Variables
 
@@ -79,5 +157,20 @@ sus_ratiosckv <- sus_diffsckv/sus_avgsckv
 # percentage
 sus_percent_diff_sckv <- abs(sus_ratiosckv*100)
 print(c("SC/KV mean difference in percentage: ", sus_percent_diff_sckv))
+```
+
+## Results and Hypothesis Tests
+
+### Tests of Normality
+
+#### Usability (SUS Score)
+
+Two types of visual inspections (histograms and qq-plots) and two types of statistical tests (Shapiro-Wilk and Skewness-Test).
+
+**Result:** Data is not normal. Boxcox transformation is used.
+
+```{r}
+# boxcox transform sus
+df$sus.boxcox = (df$sus^3.2-1)/3.2
 ```
 

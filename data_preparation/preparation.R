@@ -117,11 +117,8 @@ df_prep <- rbind(df_prep_sc, df_prep_cnl, df_prep_kv)
 # transform sus into double
 df_prep <- transform(df_prep, sus = as.double(df_prep$sus))
 
-## Export 
-# boxcox transform sus
-df_prep$sus.boxcox = (df_prep$sus^3.2-1)/3.2
-
-# write to csv so we don't need to run above lines too often
+## Export
+# write to csv
 write.csv(df_prep, "../data-survey-sus_prepared.csv")
 
 ###
@@ -423,9 +420,22 @@ df_kv_tidy <- df_kv_tidy %>%
     )
   )
 
-# write to csv so we don't need to run above lines too often
+# write to csv
 write.csv(df_sc_tidy, "../sus_sc_likert_tidy.csv")
 write.csv(df_cnl_tidy, "../sus_cnl_likert_tidy.csv")
 write.csv(df_kv_tidy, "../sus_kv_likert_tidy.csv")
 
+###
+### profile data ####
+###
 
+# remove unnecessary columns
+df_profile <- subset(mydata, select=c(subject,id,seed,PARTICIPANTTYPE.SQ001.,PARTICIPANTTYPE.SQ002.,PARTICIPANTTYPE.SQ003.,PARTICIPANTTYPE.other.,authorHOWMANYYEARS,authorHOWMANYVIDEOS,researchHOWMANYYEARS,researchHOWMANYPUB,userHOWMANYYEARS,userHOWMANYCOURSES))
+
+names(df_profile)[which(names(df_profile)=="PARTICIPANTTYPE.SQ001.")] <- "author"
+names(df_profile)[which(names(df_profile)=="PARTICIPANTTYPE.SQ002.")] <- "user"
+names(df_profile)[which(names(df_profile)=="PARTICIPANTTYPE.SQ003.")] <- "researcher"
+names(df_profile)[which(names(df_profile)=="PARTICIPANTTYPE.other.")] <- "other"
+
+# write to csv
+write.csv(df_profile, "../data-survey-profiles_prepared.csv")
