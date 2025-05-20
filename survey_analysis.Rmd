@@ -30,6 +30,7 @@ library(likert)
 if(!require(svglite)){install.packages("svglite")}
 library(svglite)
 library(ggplot2)
+library(ggtext)
 ```
 
 ### Load Data
@@ -195,131 +196,37 @@ strong_agree <- colSums(posthocdata == "5")
 strong_agree <- as.data.frame(strong_agree)
 ```
 
+#### Questions 1-4
 
-#### Claim: Efficiency of a text-based approach
-
-```{r, fig.width=8,fig.height=3}
+```{r, fig.width=7,fig.height=5}
 # setup 
 col_titles = c("Item","Strong Disagree","Disagree","Neutral","Agree","Strong Agree")
-df_posthoc_q1 = data.frame(matrix(nrow = 0, ncol = length(col_titles))) 
-colnames(df_posthoc_q1) = col_titles
+df_posthoc_all = data.frame(matrix(nrow = 0, ncol = length(col_titles))) 
+colnames(df_posthoc_all) = col_titles
 
 # fill
-df_posthoc_q1[1, ] <- c("claim.efficiency",strong_disagree[5,],disagree[5,],neutral[5,],agree[5,],strong_agree[5,])
+df_posthoc_all[1, ] <- c("Q1",strong_disagree[5,],disagree[5,],neutral[5,],agree[5,],strong_agree[5,])
+df_posthoc_all[2, ] <- c("Q2",strong_disagree[6,],disagree[6,],neutral[6,],agree[6,],strong_agree[6,])
+df_posthoc_all[3, ] <- c("Q3",strong_disagree[7,],disagree[7,],neutral[7,],agree[7,],strong_agree[7,])
+df_posthoc_all[4, ] <- c("Q4",strong_disagree[8,],disagree[8,],neutral[8,],agree[8,],strong_agree[8,])
 
 # convert to numeric
 i <- c(2:6)  
-df_posthoc_q1[, i] <- apply(df_posthoc_q1[, i], 2, function(x) as.numeric(as.character(x)))
-#sapply(df_posthoc_q1, mode)
+df_posthoc_all[, i] <- apply(df_posthoc_all[, i], 2, function(x) as.numeric(as.character(x)))
+#sapply(df_posthoc_all, mode)
 
 # plot
-title <- "Efficiency of a text-based approach"
-subtitle <- "Do you agree with the statement that a text-based approach could be more\nefficient in order to create a video-based learning module?"
-plot(likert(summary = df_posthoc_q1)) +
-  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
-  theme(axis.text.y = element_blank())
+title <- "Post-hoc Questions"
+q1_plot <- plot(likert(summary = df_posthoc_all), group.order = c("Q1", "Q2", "Q3", "Q4")) +
+  labs(title = title, y = "Percentage", caption = "<b>Q1 Efficiency:</b> Do you agree with the statement that a text-based approach could be more efficient?<br><b>Q2 Effectiveness:</b> Do you agree with the statement that a text-based approach could be more effective?<br><b>Q3 Textual notation as a first step:</b> Could you imagine using a textual notation as a starting point to sketch out<br>the main structure of a learning module in order to continue editing in a graphical user interface (GUI)?<br><b>Q4 Textual notation combined with GUI:</b> Could you imagine using a textual notation in combination with<br>an editing environment in a graphical user interface (GUI), allowing you to refine and switch between<br>textual notation and GUI representation?") +
+  theme(plot.caption = element_markdown())
+  
+q1_plot
 
 #save in variable image to export to svg
-image=plot(likert(summary = df_posthoc_q1)) +
-  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
-  theme(axis.text.y = element_blank())
+image=q1_plot
 #save
-ggsave(file="plots/posthoc_q1_efficiency.svg", plot=image, width=8, height=3)
-```
-
-
-#### Claim: Effectiveness of a text-based approach
-
-```{r, fig.width=8,fig.height=3}
-# setup 
-col_titles = c("Item","Strong Disagree","Disagree","Neutral","Agree","Strong Agree")
-df_posthoc_q2 = data.frame(matrix(nrow = 0, ncol = length(col_titles)))
-colnames(df_posthoc_q2) = col_titles
-
-# fill
-df_posthoc_q2[1, ] <- c("claim.effectiveness",strong_disagree[6,],disagree[6,],neutral[6,],agree[6,],strong_agree[6,])
-
-# convert to numeric
-i <- c(2:6)
-df_posthoc_q2[, i] <- apply(df_posthoc_q2[, i], 2, function(x) as.numeric(as.character(x)))
-#sapply(df_posthoc_q2, mode)
-
-# plot
-title <- "Effectiveness of a text-based approach"
-subtitle <- "Do you agree with the statement that a text-based approach could be more\neffective in order to create a video-based learning module?"
-plot(likert(summary = df_posthoc_q2)) +
-  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
-  theme(axis.text.y = element_blank())
-
-#save in variable image to export to svg
-image=plot(likert(summary = df_posthoc_q2)) +
-  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
-  theme(axis.text.y = element_blank())
-#save
-ggsave(file="plots/posthoc_q2_effectiveness.svg", plot=image, width=8, height=3)
-```
-
-#### Claim: text as first step
-
-```{r, fig.width=8,fig.height=3}
-# setup 
-col_titles = c("Item","Strong Disagree","Disagree","Neutral","Agree","Strong Agree")
-df_posthoc_q3 = data.frame(matrix(nrow = 0, ncol = length(col_titles)))
-colnames(df_posthoc_q3) = col_titles
-
-# fill
-df_posthoc_q3[1, ] <- c("claim.effectiveness",strong_disagree[7,],disagree[7,],neutral[7,],agree[7,],strong_agree[7,])
-
-# convert to numeric
-i <- c(2:6)
-df_posthoc_q3[, i] <- apply(df_posthoc_q3[, i], 2, function(x) as.numeric(as.character(x)))
-#sapply(df_posthoc_q3, mode)
-
-# plot
-title <- "Using a textual notation as a first step"
-subtitle <- "Could you imagine using a textual notation as a starting point\nto sketch out the main structure of a video-based learning module\nin order to continue editing in a graphical user interface (GUI)?"
-plot(likert(summary = df_posthoc_q3)) +
-  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
-  theme(axis.text.y = element_blank())
-
-#save in variable image to export to svg
-image=plot(likert(summary = df_posthoc_q3)) +
-  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
-  theme(axis.text.y = element_blank())
-#save
-ggsave(file="plots/posthoc_q3_text-first-step.svg", plot=image, width=8, height=3)
-```
-
-#### Claim: text with GUI
-
-```{r, fig.width=8,fig.height=3}
-# setup 
-col_titles = c("Item","Strong Disagree","Disagree","Neutral","Agree","Strong Agree")
-df_posthoc_q4 = data.frame(matrix(nrow = 0, ncol = length(col_titles)))
-colnames(df_posthoc_q4) = col_titles
-
-# fill
-df_posthoc_q4[1, ] <- c("claim.effectiveness",strong_disagree[8,],disagree[8,],neutral[8,],agree[8,],strong_agree[8,])
-
-# convert to numeric
-i <- c(2:6)
-df_posthoc_q4[, i] <- apply(df_posthoc_q4[, i], 2, function(x) as.numeric(as.character(x)))
-#sapply(df_posthoc_q4, mode)
-
-# plot
-title <- "Using a textual notation in combination with a graphical user interface
-(GUI)"
-subtitle <- "Could you imagine using a textual notation in combination with an editing environment\nin a graphical user interface (GUI), allowing you to refine and switch\nbetween textual notation and GUI representation?"
-plot(likert(summary = df_posthoc_q4)) +
-  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
-  theme(axis.text.y = element_blank())
-
-#save in variable image to export to svg
-image=plot(likert(summary = df_posthoc_q4)) +
-  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
-  theme(axis.text.y = element_blank())
-#save
-ggsave(file="plots/posthoc_q4_text-with-gui.svg", plot=image, width=8, height=3)
+ggsave(file="plots/posthoc_questions.svg", plot=image, width=7, height=5)
 ```
 
 ## Results and Hypothesis Tests
