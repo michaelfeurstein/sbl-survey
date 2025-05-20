@@ -439,3 +439,34 @@ names(df_profile)[which(names(df_profile)=="PARTICIPANTTYPE.other.")] <- "other"
 
 # write to csv
 write.csv(df_profile, "../data-survey-profiles_prepared.csv")
+
+###
+### data-post-hoc ####
+###
+
+# remove unnecessary columns for SUS
+df_post <- subset(mydata, select=c(subject,id,seed,CLAIMEFFICIENCY.SQ001.,CLAIMEFFECTIVENESS.SQ001.,TEXTasFIRSTSTEP.SQ001.,TEXTwithGUI.SQ001.))
+
+# replace text with numbers
+# 1 - strongly disagree --> 5 - strongly agree
+responseMapping <- c("1 - strongly disagree" = 1, "2" = 2, "3" = 3, "4" = 4, "5 - strongly agree" = 5)
+for (i in 4:ncol(df_post)) {
+  df_post[, i] <- responseMapping[df_post[, i]]
+}
+
+attributes(df_post)$variable.labels[which(names(df_post)=="CLAIMEFFICIENCY.SQ001.")] <- "Efficiency of a text-based approach"
+names(df_post)[which(names(df_post)=="CLAIMEFFICIENCY.SQ001.")] <- "claim.efficiency"
+attributes(df_post)$variable.labels[which(names(df_post)=="CLAIMEFFECTIVENESS.SQ001.")] <- "Effectiveness of a text-based approach"
+names(df_post)[which(names(df_post)=="CLAIMEFFECTIVENESS.SQ001.")] <- "claim.effectiveness"
+attributes(df_post)$variable.labels[which(names(df_post)=="TEXTasFIRSTSTEP.SQ001.")] <- "Using a textual notation as a first step"
+names(df_post)[which(names(df_post)=="TEXTasFIRSTSTEP.SQ001.")] <- "text.as.first.step"
+attributes(df_post)$variable.labels[which(names(df_post)=="TEXTwithGUI.SQ001.")] <- "Using a textual notation in combination with a graphical user interface (GUI)"
+names(df_post)[which(names(df_post)=="TEXTwithGUI.SQ001.")] <- "text.with.gui"
+
+# write to csv
+write.csv(df_post, "../data-post-hoc_prepared.csv")
+
+
+
+
+
