@@ -1,14 +1,101 @@
 # this file is used as a pre sandbox for the cleaner R notebook
 
 library(dplyr)
+if(!require(likert)){install.packages("likert")}
+library(likert)
+if(!require(svglite)){install.packages("svglite")}
+library(svglite)
+library(ggplot2)
+library(ggtext)
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+####
+# imports ####
+####
 
 # read from prepared csv
 df <- read.csv("data-survey-sus_prepared.csv")
 df <- subset(df, select = -c(X))
 
-# Usability SUS Score
+# read from prepared csv
+profiledata <- read.csv("data-survey-profiles_prepared.csv")
+
+# read from prepared csv
+posthocdata <- read.csv("data-post-hoc_prepared.csv")
+posthocdata <- head(posthocdata,-1)
+
+####
+# profile ####
+####
+
+# participant profiles
+profileSums <- colSums(profiledata == "Yes")
+profile_columns = c("Profile","Frequency")
+df_p = data.frame(matrix(nrow = 0, ncol = length(profile_columns))) 
+colnames(df_p) = profile_columns
+df_p[nrow(df_p) + 1,] = c("Author",profileSums["author"])
+df_p[nrow(df_p) + 1,] = c("User",profileSums["user"])
+df_p[nrow(df_p) + 1,] = c("Researcher",profileSums["researcher"])
+df_p[nrow(df_p) + 1,] = c("Other",3) # manual count for profile author:no user:no researcher:no
+
+# convert frequency column into numeric format
+df_p$Frequency = as.numeric(as.character(df_p$Frequency))
+
+# order dataframe ascending
+# this way it's displayed descending in horizontal barplot
+df_p <- df_p[order(df_p$Frequency),] 
+
+# plot barplot
+counts <- table(df_p$Frequency)
+par(mar=c(3, 7, 3, 3))
+profile_plot <- barplot(height=df_p$Frequency, names=df_p$Profile, main="Participant Profiles", horiz=T,las=1,xlim=c(0,50),width = c(2,2,2,2,2))
+text(x=df_p$Frequency, profile_plot, labels = paste(df_p$Frequency), pos=4, offset=0.3, xpd=T)
+
+# profile details ####
+# Author 
+## Years active
+## How many years have you been authoring / producing educational videos, lecture
+## recordings or other video-based learning content?
+profiledata$authorHOWMANYYEARS <- as.numeric(as.character(profiledata$authorHOWMANYYEARS))
+summary(na.omit(profiledata$authorHOWMANYYEARS))
+
+## Videos created 
+## How many educational videos, lecture recordings or other video-based learning
+## content have you produced until now?
+profiledata$authorHOWMANYVIDEOS <- as.numeric(as.character(profiledata$authorHOWMANYVIDEOS))
+summary(na.omit(profiledata$authorHOWMANYVIDEOS))
+
+# User 
+## Years active
+## How many years have you been using video-based learning content?
+profiledata$userHOWMANYYEARS <- as.numeric(as.character(profiledata$userHOWMANYYEARS))
+summary(na.omit(profiledata$userHOWMANYYEARS))
+
+## Courses
+## How many courses have you tought with the support of video-based learning con-
+## tent? Please also count recurring courses, which possibly took place each semester.
+profiledata$userHOWMANYCOURSES <- as.numeric(as.character(profiledata$userHOWMANYCOURSES))
+summary(na.omit(profiledata$userHOWMANYCOURSES))
+
+# Researcher
+## Years researching
+## How many years have you conducted research in the field of video-based learning
+## / technology enhanced learning / educational technology?
+profiledata$researchHOWMANYYEARS <- as.numeric(as.character(profiledata$researchHOWMANYYEARS))
+summary(na.omit(profiledata$researchHOWMANYYEARS))
+
+## Papers published
+## How many papers have you published in the field of video-based learning? 
+profiledata$researchHOWMANYPUB <- as.numeric(as.character(profiledata$researchHOWMANYPUB))
+summary(na.omit(profiledata$researchHOWMANYPUB))
+
+####
+# dependent variables ####
+####
+
+## sus ####
+
 # boxplot - visual inspection
 
 par(mar=c(5, 5, 3, 2))
@@ -20,7 +107,7 @@ df %>%
   group_by(notation) %>%
   summarize(mean = mean(sus), sd = sd(sus), min = min(sus), max = max(sus), med = median(sus), q1 = quantile(sus, 0.25), q3 = quantile(sus, 0.75))
 
-##### mean difference ####
+# mean difference
 # values
 sus_cnl <- mean(df$sus[df$notation == "cnl"])
 sus_kv <- mean(df$sus[df$notation == "kv"])
@@ -43,4 +130,170 @@ sus_ratiosckv <- sus_diffsckv/sus_avgsckv
 sus_percent_diff_sckv <- abs(sus_ratiosckv*100)
 print(c("SC/KV mean difference in percentage: ", sus_percent_diff_sckv))
 
+####
+# post-hoc questions ####
+####
 
+# get the sums of each column with likert levels
+strong_disagree <- colSums(posthocdata == "1")
+strong_disagree <- as.data.frame(strong_disagree)
+
+disagree <- colSums(posthocdata == "2")
+disagree <- as.data.frame(disagree)
+
+neutral <- colSums(posthocdata == "3")
+neutral <- as.data.frame(neutral)
+
+agree <- colSums(posthocdata == "4")
+agree <- as.data.frame(agree)
+
+strong_agree <- colSums(posthocdata == "5")
+strong_agree <- as.data.frame(strong_agree)
+
+## q1-q4 ####
+
+# setup 
+col_titles = c("Item","Strong Disagree","Disagree","Neutral","Agree","Strong Agree")
+df_posthoc_all = data.frame(matrix(nrow = 0, ncol = length(col_titles))) 
+colnames(df_posthoc_all) = col_titles
+
+# fill
+df_posthoc_all[1, ] <- c("Q1",strong_disagree[5,],disagree[5,],neutral[5,],agree[5,],strong_agree[5,])
+df_posthoc_all[2, ] <- c("Q2",strong_disagree[6,],disagree[6,],neutral[6,],agree[6,],strong_agree[6,])
+df_posthoc_all[3, ] <- c("Q3",strong_disagree[7,],disagree[7,],neutral[7,],agree[7,],strong_agree[7,])
+df_posthoc_all[4, ] <- c("Q4",strong_disagree[8,],disagree[8,],neutral[8,],agree[8,],strong_agree[8,])
+
+# convert to numeric
+i <- c(2:6)  
+df_posthoc_all[, i] <- apply(df_posthoc_all[, i], 2, function(x) as.numeric(as.character(x)))
+#sapply(df_posthoc_all, mode)
+
+# plot
+title <- "Post-hoc Questions"
+q1_plot <- plot(likert(summary = df_posthoc_all), group.order = c("Q1", "Q2", "Q3", "Q4")) +
+  labs(title = title, y = "Percentage", caption = "<b>Q1 Efficiency:</b> Do you agree with the statement that a text-based approach could be more efficient?<br><b>Q2 Effectiveness:</b> Do you agree with the statement that a text-based approach could be more effective?<br><b>Q3 Textual notation as a first step:</b> Could you imagine using a textual notation as a starting point to sketch out<br>the main structure of a learning module in order to continue editing in a graphical user interface (GUI)?<br><b>Q4 Textual notation combined with GUI:</b> Could you imagine using a textual notation in combination with<br>an editing environment in a graphical user interface (GUI), allowing you to refine and switch between<br>textual notation and GUI representation?") +
+  theme(plot.caption = element_markdown())
+
+q1_plot
+
+#save in variable image to export to svg
+image=q1_plot
+#save
+ggsave(file="plots/posthoc_questions.svg", plot=image, width=7, height=5)
+
+## q1: efficiency ####
+
+# setup 
+col_titles = c("Item","Strong Disagree","Disagree","Neutral","Agree","Strong Agree")
+df_posthoc_q1 = data.frame(matrix(nrow = 0, ncol = length(col_titles))) 
+colnames(df_posthoc_q1) = col_titles
+
+# fill
+df_posthoc_q1[1, ] <- c("claim.efficiency",strong_disagree[5,],disagree[5,],neutral[5,],agree[5,],strong_agree[5,])
+
+# convert to numeric
+i <- c(2:6)  
+df_posthoc_q1[, i] <- apply(df_posthoc_q1[, i], 2, function(x) as.numeric(as.character(x)))
+#sapply(df_posthoc_q1, mode)
+
+# plot
+title <- "Efficiency of a text-based approach"
+subtitle <- "Do you agree with the statement that a text-based approach could be more\nefficient in order to create a video-based learning module?"
+plot(likert(summary = df_posthoc_q1)) +
+  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
+  theme(axis.text.y = element_blank())
+
+#save in variable image to export to svg
+image=plot(likert(summary = df_posthoc_q1)) +
+  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
+  theme(axis.text.y = element_blank())
+#save
+ggsave(file="plots/posthoc_q1_efficiency.svg", plot=image, width=8, height=3)
+
+## q2: effectiveness ####
+
+# setup 
+col_titles = c("Item","Strong Disagree","Disagree","Neutral","Agree","Strong Agree")
+df_posthoc_q2 = data.frame(matrix(nrow = 0, ncol = length(col_titles)))
+colnames(df_posthoc_q2) = col_titles
+
+# fill
+df_posthoc_q2[1, ] <- c("claim.effectiveness",strong_disagree[6,],disagree[6,],neutral[6,],agree[6,],strong_agree[6,])
+
+# convert to numeric
+i <- c(2:6)
+df_posthoc_q2[, i] <- apply(df_posthoc_q2[, i], 2, function(x) as.numeric(as.character(x)))
+#sapply(df_posthoc_q2, mode)
+
+# plot
+title <- "Effectiveness of a text-based approach"
+subtitle <- "Do you agree with the statement that a text-based approach could be more\neffective in order to create a video-based learning module?"
+plot(likert(summary = df_posthoc_q2)) +
+  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
+  theme(axis.text.y = element_blank())
+
+#save in variable image to export to svg
+image=plot(likert(summary = df_posthoc_q2)) +
+  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
+  theme(axis.text.y = element_blank())
+#save
+ggsave(file="plots/posthoc_q2_effectiveness.svg", plot=image, width=8, height=3)
+
+## q3: text as first step ####
+
+# setup 
+col_titles = c("Item","Strong Disagree","Disagree","Neutral","Agree","Strong Agree")
+df_posthoc_q3 = data.frame(matrix(nrow = 0, ncol = length(col_titles)))
+colnames(df_posthoc_q3) = col_titles
+
+# fill
+df_posthoc_q3[1, ] <- c("claim.effectiveness",strong_disagree[7,],disagree[7,],neutral[7,],agree[7,],strong_agree[7,])
+
+# convert to numeric
+i <- c(2:6)
+df_posthoc_q3[, i] <- apply(df_posthoc_q3[, i], 2, function(x) as.numeric(as.character(x)))
+#sapply(df_posthoc_q3, mode)
+
+# plot
+title <- "Using a textual notation as a first step"
+subtitle <- "Could you imagine using a textual notation as a starting point\nto sketch out the main structure of a video-based learning module\nin order to continue editing in a graphical user interface (GUI)?"
+plot(likert(summary = df_posthoc_q3)) +
+  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
+  theme(axis.text.y = element_blank())
+
+#save in variable image to export to svg
+image=plot(likert(summary = df_posthoc_q3)) +
+  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
+  theme(axis.text.y = element_blank())
+#save
+ggsave(file="plots/posthoc_q3_text-first-step.svg", plot=image, width=8, height=3)
+
+## q4: text with GUI ####
+
+# setup 
+col_titles = c("Item","Strong Disagree","Disagree","Neutral","Agree","Strong Agree")
+df_posthoc_q4 = data.frame(matrix(nrow = 0, ncol = length(col_titles)))
+colnames(df_posthoc_q4) = col_titles
+
+# fill
+df_posthoc_q4[1, ] <- c("claim.effectiveness",strong_disagree[8,],disagree[8,],neutral[8,],agree[8,],strong_agree[8,])
+
+# convert to numeric
+i <- c(2:6)
+df_posthoc_q4[, i] <- apply(df_posthoc_q4[, i], 2, function(x) as.numeric(as.character(x)))
+#sapply(df_posthoc_q4, mode)
+
+# plot
+title <- "Using a textual notation in combination with a graphical user interface
+(GUI)"
+subtitle <- "Could you imagine using a textual notation in combination with an editing environment\nin a graphical user interface (GUI), allowing you to refine and switch\nbetween textual notation and GUI representation?"
+plot(likert(summary = df_posthoc_q4)) +
+  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
+  theme(axis.text.y = element_blank())
+
+#save in variable image to export to svg
+image=plot(likert(summary = df_posthoc_q4)) +
+  labs(title = title, subtitle = subtitle, y = "Percentage", caption = "see Appendix for detailed formulation of question") +
+  theme(axis.text.y = element_blank())
+#save
+ggsave(file="plots/posthoc_q4_text-with-gui.svg", plot=image, width=8, height=3)
