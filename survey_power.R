@@ -3,7 +3,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 library(pwr)
 
 # get medium effect size for anova
-cohen.ES(test = "anov", size = "small")
+cohen.ES(test = "anov", size = "medium")
 
 # 3 groups
 # medium effect size (0.25)
