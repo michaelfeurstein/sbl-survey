@@ -1,0 +1,2473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+ <LimeSurveyDocType>Survey</LimeSurveyDocType>
+ <DBVersion>356</DBVersion>
+ <languages>
+  <language>en</language>
+ </languages>
+ <answers>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>code</fieldname>
+   <fieldname>answer</fieldname>
+   <fieldname>sortorder</fieldname>
+   <fieldname>assessment_value</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>scale_id</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[250]]></qid>
+    <code><![CDATA[A1]]></code>
+    <answer><![CDATA[1 - strongly disagree]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[250]]></qid>
+    <code><![CDATA[A2]]></code>
+    <answer><![CDATA[2]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[250]]></qid>
+    <code><![CDATA[A3]]></code>
+    <answer><![CDATA[3]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[250]]></qid>
+    <code><![CDATA[A4]]></code>
+    <answer><![CDATA[4]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[250]]></qid>
+    <code><![CDATA[A5]]></code>
+    <answer><![CDATA[5 - strongly agree]]></answer>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[263]]></qid>
+    <code><![CDATA[A1]]></code>
+    <answer><![CDATA[1 - strongly disagree]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[263]]></qid>
+    <code><![CDATA[A2]]></code>
+    <answer><![CDATA[2]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[263]]></qid>
+    <code><![CDATA[A3]]></code>
+    <answer><![CDATA[3]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[263]]></qid>
+    <code><![CDATA[A4]]></code>
+    <answer><![CDATA[4]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[263]]></qid>
+    <code><![CDATA[A5]]></code>
+    <answer><![CDATA[5 - strongly agree]]></answer>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[276]]></qid>
+    <code><![CDATA[A1]]></code>
+    <answer><![CDATA[1 - strongly disagree]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[276]]></qid>
+    <code><![CDATA[A2]]></code>
+    <answer><![CDATA[2]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[276]]></qid>
+    <code><![CDATA[A3]]></code>
+    <answer><![CDATA[3]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[276]]></qid>
+    <code><![CDATA[A4]]></code>
+    <answer><![CDATA[4]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[276]]></qid>
+    <code><![CDATA[A5]]></code>
+    <answer><![CDATA[5 - strongly agree]]></answer>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[289]]></qid>
+    <code><![CDATA[A1]]></code>
+    <answer><![CDATA[1st place]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[289]]></qid>
+    <code><![CDATA[A2]]></code>
+    <answer><![CDATA[2nd place]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[289]]></qid>
+    <code><![CDATA[A3]]></code>
+    <answer><![CDATA[3rd place]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[289]]></qid>
+    <code><![CDATA[A4]]></code>
+    <answer><![CDATA[don't know]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[331]]></qid>
+    <code><![CDATA[A1]]></code>
+    <answer><![CDATA[1 - strongly disagree]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[331]]></qid>
+    <code><![CDATA[A2]]></code>
+    <answer><![CDATA[2]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[331]]></qid>
+    <code><![CDATA[A3]]></code>
+    <answer><![CDATA[3]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[331]]></qid>
+    <code><![CDATA[A4]]></code>
+    <answer><![CDATA[4]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[331]]></qid>
+    <code><![CDATA[A5]]></code>
+    <answer><![CDATA[5 - strongly agree]]></answer>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[334]]></qid>
+    <code><![CDATA[A1]]></code>
+    <answer><![CDATA[1 - strongly disagree]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[334]]></qid>
+    <code><![CDATA[A2]]></code>
+    <answer><![CDATA[2]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[334]]></qid>
+    <code><![CDATA[A3]]></code>
+    <answer><![CDATA[3]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[334]]></qid>
+    <code><![CDATA[A4]]></code>
+    <answer><![CDATA[4]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[334]]></qid>
+    <code><![CDATA[A5]]></code>
+    <answer><![CDATA[5 - strongly agree]]></answer>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[370]]></qid>
+    <code><![CDATA[A1]]></code>
+    <answer><![CDATA[1 - strongly disagree]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[370]]></qid>
+    <code><![CDATA[A2]]></code>
+    <answer><![CDATA[2]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[370]]></qid>
+    <code><![CDATA[A3]]></code>
+    <answer><![CDATA[3]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[370]]></qid>
+    <code><![CDATA[A4]]></code>
+    <answer><![CDATA[4]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[370]]></qid>
+    <code><![CDATA[A5]]></code>
+    <answer><![CDATA[5 - strongly agree]]></answer>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[632]]></qid>
+    <code><![CDATA[A1]]></code>
+    <answer><![CDATA[1 - strongly disagree]]></answer>
+    <sortorder><![CDATA[1]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[632]]></qid>
+    <code><![CDATA[A2]]></code>
+    <answer><![CDATA[2]]></answer>
+    <sortorder><![CDATA[2]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[632]]></qid>
+    <code><![CDATA[A3]]></code>
+    <answer><![CDATA[3]]></answer>
+    <sortorder><![CDATA[3]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[632]]></qid>
+    <code><![CDATA[A4]]></code>
+    <answer><![CDATA[4]]></answer>
+    <sortorder><![CDATA[4]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+   <row>
+    <qid><![CDATA[632]]></qid>
+    <code><![CDATA[A5]]></code>
+    <answer><![CDATA[5 - strongly agree]]></answer>
+    <sortorder><![CDATA[5]]></sortorder>
+    <assessment_value><![CDATA[0]]></assessment_value>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+   </row>
+  </rows>
+ </answers>
+ <conditions>
+  <fields>
+   <fieldname>cid</fieldname>
+   <fieldname>qid</fieldname>
+   <fieldname>cqid</fieldname>
+   <fieldname>cfieldname</fieldname>
+   <fieldname>method</fieldname>
+   <fieldname>value</fieldname>
+   <fieldname>scenario</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <cid><![CDATA[6]]></cid>
+    <qid><![CDATA[340]]></qid>
+    <cqid><![CDATA[337]]></cqid>
+    <cfieldname><![CDATA[623939X44X337]]></cfieldname>
+    <method><![CDATA[==]]></method>
+    <value><![CDATA[SQ002]]></value>
+    <scenario><![CDATA[1]]></scenario>
+   </row>
+   <row>
+    <cid><![CDATA[7]]></cid>
+    <qid><![CDATA[340]]></qid>
+    <cqid><![CDATA[337]]></cqid>
+    <cfieldname><![CDATA[623939X44X337]]></cfieldname>
+    <method><![CDATA[==]]></method>
+    <value><![CDATA[SQ001]]></value>
+    <scenario><![CDATA[1]]></scenario>
+   </row>
+   <row>
+    <cid><![CDATA[31]]></cid>
+    <qid><![CDATA[631]]></qid>
+    <cqid><![CDATA[545]]></cqid>
+    <cfieldname><![CDATA[+623939X63X545SQ002]]></cfieldname>
+    <method><![CDATA[==]]></method>
+    <value><![CDATA[Y]]></value>
+    <scenario><![CDATA[1]]></scenario>
+   </row>
+   <row>
+    <cid><![CDATA[15]]></cid>
+    <qid><![CDATA[550]]></qid>
+    <cqid><![CDATA[545]]></cqid>
+    <cfieldname><![CDATA[623939X63X545]]></cfieldname>
+    <method><![CDATA[==]]></method>
+    <value><![CDATA[SQ001]]></value>
+    <scenario><![CDATA[1]]></scenario>
+   </row>
+   <row>
+    <cid><![CDATA[28]]></cid>
+    <qid><![CDATA[551]]></qid>
+    <cqid><![CDATA[545]]></cqid>
+    <cfieldname><![CDATA[+623939X63X545SQ003]]></cfieldname>
+    <method><![CDATA[==]]></method>
+    <value><![CDATA[Y]]></value>
+    <scenario><![CDATA[1]]></scenario>
+   </row>
+   <row>
+    <cid><![CDATA[27]]></cid>
+    <qid><![CDATA[629]]></qid>
+    <cqid><![CDATA[545]]></cqid>
+    <cfieldname><![CDATA[+623939X63X545SQ001]]></cfieldname>
+    <method><![CDATA[==]]></method>
+    <value><![CDATA[Y]]></value>
+    <scenario><![CDATA[1]]></scenario>
+   </row>
+   <row>
+    <cid><![CDATA[29]]></cid>
+    <qid><![CDATA[630]]></qid>
+    <cqid><![CDATA[545]]></cqid>
+    <cfieldname><![CDATA[+623939X63X545SQ003]]></cfieldname>
+    <method><![CDATA[==]]></method>
+    <value><![CDATA[Y]]></value>
+    <scenario><![CDATA[1]]></scenario>
+   </row>
+   <row>
+    <cid><![CDATA[30]]></cid>
+    <qid><![CDATA[556]]></qid>
+    <cqid><![CDATA[545]]></cqid>
+    <cfieldname><![CDATA[+623939X63X545SQ002]]></cfieldname>
+    <method><![CDATA[==]]></method>
+    <value><![CDATA[Y]]></value>
+    <scenario><![CDATA[1]]></scenario>
+   </row>
+  </rows>
+ </conditions>
+ <groups>
+  <fields>
+   <fieldname>gid</fieldname>
+   <fieldname>sid</fieldname>
+   <fieldname>group_name</fieldname>
+   <fieldname>group_order</fieldname>
+   <fieldname>description</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>randomization_group</fieldname>
+   <fieldname>grelevance</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <gid><![CDATA[31]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[Storyboard using a Script Notation]]></group_name>
+    <group_order><![CDATA[6]]></group_order>
+    <description><![CDATA[<script type="text/javascript" charset="utf-8">
+
+	$(document).on('ready pjax:scriptcomplete',function(){
+		$('#ls-button-submit').text('Next');
+	});
+</script>
+<p style="text-align: center;">First, please have a look at the listing below showing the storyboard written using a script notation. The main idea is to use commands (e.g.: video, chapter or interaction) and parameters (e.g.: timestamp, title or type) in order to formulate a textual storyboard.</p>
+
+<p style="text-align: center;"><img alt="" src="/videoeval/upload/surveys/623939/images/plain_notation_01.png" /></p>
+]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group><![CDATA[randgroup1]]></randomization_group>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[32]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[Storyboard using a Natural-Language Notation]]></group_name>
+    <group_order><![CDATA[7]]></group_order>
+    <description><![CDATA[<script type="text/javascript" charset="utf-8">
+
+	$(document).on('ready pjax:scriptcomplete',function(){
+		$('#ls-button-submit').text('Next');
+	});
+</script>
+<p style="text-align: center;">First, please have a look at the listing below showing the storyboard written using a natural-language notation. The main idea is to use sentences with specific key words (e.g.: Module, titled, Video, URL etc.) in order to formulate a textual storyboard.</p>
+
+<p style="text-align: center;"><img alt="" src="/videoeval/upload/surveys/623939/images/plain_notation_02.png" /></p>
+]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group><![CDATA[randgroup1]]></randomization_group>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[33]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[Storyboard using a Key-Value Notation]]></group_name>
+    <group_order><![CDATA[8]]></group_order>
+    <description><![CDATA[<script type="text/javascript" charset="utf-8">
+
+	$(document).on('ready pjax:scriptcomplete',function(){
+		$('#ls-button-submit').text('Next');
+	});
+</script>
+<p style="text-align: center;">First, please have a look at the listing below showing the storyboard written using a key-value notation. The main idea is to use pairs of keys (e.g.: title, timestamp, type etc.) and their respective values in order to formulate a textual storyboard.</p>
+
+<p style="text-align: center;"><img alt="" src="/videoeval/upload/surveys/623939/images/plain_notation_03.png" /></p>
+]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group><![CDATA[randgroup1]]></randomization_group>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[34]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[What is a Video-Based Learning Module?]]></group_name>
+    <group_order><![CDATA[2]]></group_order>
+    <description><![CDATA[<p style="text-align: justify;">A video-based learning module revolves around a video as shown below:</p>
+
+<p style="text-align: center;"><iframe frameborder="0" src="https://www.youtube.com/embed/0siisFJUKh4?autohide=1&controls=1&showinfo=0"></iframe><input type="button" value="Remove video" /></p>
+
+<p style="text-align: center;"><span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size:12px;">Example for an educational video on the topic of "Information Systems" (Language: German).<br />
+You may skip through the video in order to get an idea of the content.<br />
+However, it is not required to watch the video and understand its content.</span></span></p>
+
+<p style="text-align: justify;"> </p>
+
+<p>It is then enhanced with chapters, annotations, text pages or interactions such as multiple-choice or open text questions. The screenshot below illustrates an example for a video-based learning module from LEARN (e-Learning platform at WU Vienna). It shows a video with learning activities on the right-hand side. In this case, there are three multiple-choice questions which are followed by the video and two open text questions.</p>
+]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[35]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[Final Questions & General Comments]]></group_name>
+    <group_order><![CDATA[9]]></group_order>
+    <description><![CDATA[<p>The following image shows all notations from this questionnaire. Please have a look at the notations again and answer the final questions below according to your personal preferences.</p>
+]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[41]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[Text-based Storyboards and Video-Based Learning?]]></group_name>
+    <group_order><![CDATA[1]]></group_order>
+    <description><![CDATA[<p style="text-align: justify;">Storyboards are commonly used in the creative industries to sketch out scenes for a video. Each scene is depicted with a preview sketch and a text note describing the scene. The storyboard provides the basis for the further production process of a video.</p>
+
+<p style="text-align: justify;">In our research, we want to transfer the concept of a storyboard to help educators create interactive video-based learning content more easily by transforming the text note describing each scene into actual interactive learning objects.</p>
+
+<p style="text-align: justify;">We call this a storyboard language to create video-based learning modules.</p>
+
+<p style="text-align: justify;">In this sense, the storyboard may then serve as a templating system to prepare the further structure of a video-based learning module (see next page).</p>
+]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[42]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[Why text-based?]]></group_name>
+    <group_order><![CDATA[3]]></group_order>
+    <description><![CDATA[<p style="text-align: justify;">What if we could transfer the concept of writing a storyboard to writing a storyline, which could then be transferred into actual e-learning content?</p>
+
+<p style="text-align: justify;">A common approach is to provide visual editing environments in the sense of a "What You See Is What You Get" editor or environments such as a web-based video editor in order to create a video-based learning module. However, these editing environments may have limitations. It is hard to design intuitive, efficient* and effective** visual interfaces. From a user's perspective, such environments are hard to learn in the beginning and when fully understood the features available may already become limiting.</p>
+
+<p style="text-align: justify;">Therefore, a text-based approach could support the creation process. This may seem very uncommon at first, however, at second glance, it could provide a more direct way to create a video-based learning module. There are, for example, text-based approaches offering video editing features with great detail. Examples are: <a href="https://zulko.github.io/moviepy/" target="_blank">MoviePy</a> or <a href="http://avisynth.nl/index.php/Main_Page" target="_blank">AviSynth</a>. Furthermore studies have shown that text-based editing can be more efficient & effective (<a href="https://doi.org/10.1145/3110274" target="_blank">Andersen et al., 2017</a>).</p>
+
+<p style="text-align: justify;"><strong>Our claim is that text-based storyboards are more efficient & effective for the creation process of a video-based learning module.</strong></p>
+
+<p style="text-align: justify;"><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">*Efficiency being defined as the average cost of time for creating a module (<a href="https://doi.org/10.1007/s10009-007-0059-5" target="_blank">Gupta & Jalote, 2008</a>). That is, a more time-efficient way using less time.<br />
+**Effectiveness being defined as the ability to create a module in an accurate way. That is, a module that implements the initially defined tasks correctly (<a href="https://books.google.at/books?id=9OsdAQAACAAJ&printsec=frontcover&dq=editions:GA5HGx9619IC&hl=de&redir_esc=y" target="_blank">Sumanth, 1994</a>).</span></span></p>
+]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[43]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[What this questionnaire wants to find out]]></group_name>
+    <group_order><![CDATA[4]]></group_order>
+    <description><![CDATA[<script type="text/javascript" charset="utf-8">
+
+	$(document).on('ready pjax:scriptcomplete',function(){
+		$('#ls-button-submit').text('Yes, I am prepared to answer the first question!');
+	});
+</script>
+<p style="text-align: justify;">In order to support the creator with a text-based storyboard as a tool to create a video-based learning module, the central question lies in the style of writing - the notation - hence noting down how a video-based module is structured and set up from the perspective of an educator.</p>
+
+<p style="text-align: justify;">We want to find out <strong>YOUR</strong> preference towards a textual notation.</p>
+
+<h2 style="text-align: justify;">Please imagine the following storyline:</h2>
+
+<div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;">
+<p>The video shown before is your video around which you want to create a video-based learning module. For the sake of simplicity, we will focus on two tasks in order to create a simple video-based learning module:</p>
+
+<ul>
+	<li><strong>Task 1:</strong> Define chapters within the video for better navigation.<br />
+	There are two chapters, namely:</li>
+</ul>
+
+<p>Chapter 1: Definition of the term Information System (timestamp: 01:10)<br />
+Chapter 2: An example based on the library (timestamp: 02:05)</p>
+
+<ul>
+	<li><strong>Task 2:</strong> Create two interactions, namely a reference for a multiple choice question shown before the video and a text page shown after the video:</li>
+</ul>
+
+<p>Interaction 1: Show a multiple choice question before the video, titled "What is an Information System?"<br />
+Interaction 2: Show a text page after the video, titled "Information Systems around us".</p>
+</div>
+
+<p style="text-align: justify;"><br />
+On the following pages we will ask you about your profile as an educator/researcher in the field of video-based learning and will present to you <strong>three different text-based notation styles</strong> which will all solve the described above. You can always navigate back to this page in order to re-read the storyline.</p>
+]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[44]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[Thank you!]]></group_name>
+    <group_order><![CDATA[10]]></group_order>
+    <description><![CDATA[<p>Thank you for taking the time to answer the previous questions, we would be happy to follow up on your answers to the questionnaire if anything is unclear.</p>
+]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[63]]></gid>
+    <sid><![CDATA[623939]]></sid>
+    <group_name><![CDATA[Your profile]]></group_name>
+    <group_order><![CDATA[5]]></group_order>
+    <description><![CDATA[<script type="text/javascript" charset="utf-8">
+
+	$(document).on('ready pjax:scriptcomplete',function(){
+		$('#ls-button-submit').text('Next');
+	});
+</script>
+Please answer the following short questions about yourself as an educator / researcher or facilitator in the field of video-based learning.]]></description>
+    <language><![CDATA[en]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+  </rows>
+ </groups>
+ <questions>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>parent_qid</fieldname>
+   <fieldname>sid</fieldname>
+   <fieldname>gid</fieldname>
+   <fieldname>type</fieldname>
+   <fieldname>title</fieldname>
+   <fieldname>question</fieldname>
+   <fieldname>preg</fieldname>
+   <fieldname>help</fieldname>
+   <fieldname>other</fieldname>
+   <fieldname>mandatory</fieldname>
+   <fieldname>question_order</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>scale_id</fieldname>
+   <fieldname>same_default</fieldname>
+   <fieldname>relevance</fieldname>
+   <fieldname>modulename</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[250]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[NOTATION01]]></title>
+    <question><![CDATA[Second, please answer the following questions about this notation:]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[251]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[COMMENTS01]]></title>
+    <question><![CDATA[Additional thoughts?<br />
+<span style="font-size:18px;"><span style="font-family:Arial,Helvetica,sans-serif;">Please let us know any comments about the above notation.</span></span>]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[263]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[NOTATION02]]></title>
+    <question><![CDATA[Second, please answer the following questions about this notation:]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[275]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[COMMENTS02]]></title>
+    <question><![CDATA[Additional thoughts?<br />
+<span style="font-size:18px;"><span style="font-family:Arial,Helvetica,sans-serif;">Please let us know any comments about the above notation.</span></span>]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[276]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[NOTATION03]]></title>
+    <question><![CDATA[Second, please answer the following questions about this notation:]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[287]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[COMMENTS03]]></title>
+    <question><![CDATA[Additional thoughts?<br />
+<span style="font-size:18px;"><span style="font-family:Arial,Helvetica,sans-serif;">Please let us know any comments about the above notation.</span></span>]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[288]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[43]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[READCHECK]]></title>
+    <question><![CDATA[<p style="text-align: center;">I have read and understood the described storyline. Let's start!</p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[289]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[H]]></type>
+    <title><![CDATA[RANKING]]></title>
+    <question><![CDATA[<p>Please rank the notations in order of your personal preference towards a textual notation.</p>
+
+<p><span style="font-size:18px;"><span style="font-family:Arial,Helvetica,sans-serif;"><strong>1st place:</strong> the notation you could imagine working with and formulating storyboards with.<br />
+<strong>2nd place:</strong> the notation you could imagine working with, given some time to learn / help needed.<br />
+<strong>3rd place:</strong> the notation you could <strong>NOT</strong> imagine working with.</span></span></p>
+
+<p><span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size:16px;">Please note that you can assign the same rank to all notations making them equal in preference.<br />
+If you cannot decide, or are unsure please select "don't know".</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[328]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[41]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[INFO01]]></title>
+    <question><![CDATA[<p style="text-align: center;"><a href="/videoeval/upload/surveys/623939/images/storyboard_example.png" target="_blank"><img alt="" src="/videoeval/upload/surveys/623939/images/storyboard_example.png" style="width: 25em;" /></a></p>
+
+<p style="text-align: center;"><span style="font-size:12px;"><span style="font-family:Arial,Helvetica,sans-serif;">A sample storyboard showing each scene and a short description.</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[329]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[34]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[INFO02]]></title>
+    <question><![CDATA[<p style="text-align: center;"><a href="/videoeval/upload/surveys/623939/images/LEARN_example.png" target="_blank"><img alt="" src="/videoeval/upload/surveys/623939/images/LEARN_example.png" style="height: 20em;" /></a></p>
+
+<p style="text-align: center;"><span style="font-size:12px;"><span style="font-family:Arial,Helvetica,sans-serif;">An example screenshot showing a video-based learning module in LEARN.</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[330]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[42]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[INFO03]]></title>
+    <question><![CDATA[<p style="text-align: center;"><a href="/videoeval/upload/surveys/623939/images/storyboard_to_text_based.png" target="_blank"><img alt="" src="/videoeval/upload/surveys/623939/images/storyboard_to_text_based.png" style="width: 25em;" /></a></p>
+
+<p style="text-align: center;"><span style="font-size:12px;"><span style="font-family:Arial,Helvetica,sans-serif;">Conceptual idea of using a text-based approach.</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[331]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[CLAIMEFFECTIVENESS]]></title>
+    <question><![CDATA[<p>Effectiveness of a text-based approach</p>
+
+<p><span style="font-size:18px;"><span style="font-family:Arial,Helvetica,sans-serif;">After having seen the examples for text-based notations, do you agree with the opening statement that a text-based approach could be more effective* in order to create a video-based learning module?</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">*Effectiveness being defined as the ability to create a module in an accurate way. That is, a module that implements the initially defined tasks correctly (<a href="https://books.google.at/books?id=9OsdAQAACAAJ&amp;printsec=frontcover&amp;dq=editions:GA5HGx9619IC&amp;hl=de&amp;redir_esc=y" target="_blank">Sumanth, 1994</a>).</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">Examples are:</span></span></p>
+
+<ul>
+	<li><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">By formulating text you could complete the task of setting a title.</span></span></li>
+	<li><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">By formulating text you could complete the task of creating a chapter at a timestamp with a defined title.</span></span></li>
+</ul>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[334]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[TEXTasFIRSTSTEP]]></title>
+    <question><![CDATA[<p>Using a textual notation as a first step:</p>
+
+<p><span style="font-size:18px;"><span style="font-family:Arial,Helvetica,sans-serif;">Could you imagine using a textual notation as a starting point to sketch out your main structure of the video-based learning module in order to continue editing in a graphical user interface (GUI)?</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[336]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[GENERALCOMMENTS]]></title>
+    <question><![CDATA[<p>Anything else?</p>
+
+<p><span style="font-size:18px;"><span style="font-family:Arial,Helvetica,sans-serif;">Please let us know any comments or thoughts, which have not been articulated in the above questions, or came to mind while answering this questionnaire.</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[337]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[44]]></gid>
+    <type><![CDATA[M]]></type>
+    <title><![CDATA[CONTACT]]></title>
+    <question><![CDATA[Please indicate your availability.]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[340]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[44]]></gid>
+    <type><![CDATA[S]]></type>
+    <title><![CDATA[EMAIL]]></title>
+    <question><![CDATA[Please provide a valid email address:]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[((623939X44X337SQ001.NAOK == "Y" or 623939X44X337SQ002.NAOK == "Y"))]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[344]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[NOTATIONOVERVIEW]]></title>
+    <question><![CDATA[<a href="/videoeval/upload/surveys/623939/images/notations_overview_large.png" target="_blank"><img alt="" src="/videoeval/upload/surveys/623939/images/notations_overview_small.png" width="100%" /></a>
+<p style="text-align: center;"><span style="font-size:12px;"><span style="font-family:Arial,Helvetica,sans-serif;">Click on the image above for a larger view.</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[349]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[44]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[THANKYOU]]></title>
+    <question><![CDATA[<p style="text-align: center;">Thank you for taking the time to participate. It is much appreciated.</p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[370]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[CLAIMEFFICIENCY]]></title>
+    <question><![CDATA[<p>Efficiency of a text-based approach</p>
+
+<p><span style="font-size:18px;"><span style="font-family:Arial,Helvetica,sans-serif;">After having seen the examples for text-based notations, do you agree with the opening statement that a text-based approach could be more efficient* in order to create a video-based learning module?</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">*Efficiency being defined as the average cost of time for creating a module (<a href="https://doi.org/10.1007/s10009-007-0059-5" target="_blank">Gupta & Jalote, 2008</a>). That is, a more time-efficient way using less time.</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">Examples are:</span></span></p>
+
+<ul>
+	<li><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">You would need less time than usual to create a video-based learning module.</span></span></li>
+	<li><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">The effort is perceived as lower than usual to get started and create a video-based learning module.</span></span></li>
+</ul>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[372]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[NOTATION01HELP]]></title>
+    <question><![CDATA[<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">*A function in the context of this notation can be seen as the available syntax options (e.g. keywords) to choose from. For example, setting a title, description or timestamp for a specific chapter or creating an interaction.</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">**Inconsistency meaning that there are too many different ways to accomplish a certain task. For example, setting a title is possible in three different ways.</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">***A technical person would be considered someone who either has experience using this notation or is an expert in using a software-language or programming notation.</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[373]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[NOTATION02HELP]]></title>
+    <question><![CDATA[<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">*A function in the context of this notation can be seen as the available syntax options (e.g. keywords) to choose from. For example, setting a title, description or timestamp for a specific chapter or creating an interaction.</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">**Inconsistency meaning that there are too many different ways to accomplish a certain task. For example, setting a title is possible in three different ways.</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">***A technical person would be considered someone who either has experience using this notation or is an expert in using a software-language or programming notation.</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[374]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[NOtATION03HELP]]></title>
+    <question><![CDATA[<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">*A function in the context of this notation can be seen as the available syntax options (e.g. keywords) to choose from. For example, setting a title, description or timestamp for a specific chapter or creating an interaction.</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">**Inconsistency meaning that there are too many different ways to accomplish a certain task. For example, setting a title is possible in three different ways.</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">***A technical person would be considered someone who either has experience using this notation or is an expert in using a software-language or programming notation.</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[545]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[M]]></type>
+    <title><![CDATA[PARTICIPANTTYPE]]></title>
+    <question><![CDATA[Please indicate which role(s) characterize(s) you best:<br />
+<span style="font-size:12px;"><span style="font-family:Arial,Helvetica,sans-serif;">Multiple selections possible.</span></span>]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[Y]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[550]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[N]]></type>
+    <title><![CDATA[authorHOWMANYVIDEOS]]></title>
+    <question><![CDATA[How many educational videos, lecture recordings or other video-based learning content have you produced until now?]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[((623939X63X545SQ001.NAOK == "Y"))]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[551]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[N]]></type>
+    <title><![CDATA[researchHOWMANYYEARS]]></title>
+    <question><![CDATA[How many years have you conducted research in the field of video-based learning / technology enhanced learning / educational technology?]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[((623939X63X545SQ003.NAOK == "Y"))]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[556]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[N]]></type>
+    <title><![CDATA[userHOWMANYCOURSES]]></title>
+    <question><![CDATA[<p>How many courses have you tought with the support of video-based learning content?</p>
+
+<p><span style="font-family:Arial,Helvetica,sans-serif;"><span style="font-size:12px;">Please also count recurring courses, which possibly took place each semester.</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[((623939X63X545SQ002.NAOK == "Y"))]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[629]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[N]]></type>
+    <title><![CDATA[authorHOWMANYYEARS]]></title>
+    <question><![CDATA[How many years have you been authoring / producing educational videos, lecture recordings or other video-based learning content?]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[((623939X63X545SQ001.NAOK == "Y"))]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[630]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[N]]></type>
+    <title><![CDATA[researchHOWMANYPUB]]></title>
+    <question><![CDATA[How many papers have you published in the field of video-based learning?]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[((623939X63X545SQ003.NAOK == "Y"))]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[631]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[N]]></type>
+    <title><![CDATA[userHOWMANYYEARS]]></title>
+    <question><![CDATA[How many years have you been using video-based learning content?]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[((623939X63X545SQ002.NAOK == "Y"))]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[632]]></qid>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[F]]></type>
+    <title><![CDATA[TEXTwithGUI]]></title>
+    <question><![CDATA[<p>Using a textual notation in combination with a graphical user interface (GUI):</p>
+
+<p><span style="font-size:18px;"><span style="font-family:Arial,Helvetica,sans-serif;">Could you imagine using a textual notation in combination with an editing environment in a graphical user interface (GUI), allowing you to refine and switch beteen textual notation and GUI representation?</span></span></p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[Y]]></mandatory>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+  </rows>
+ </questions>
+ <subquestions>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>parent_qid</fieldname>
+   <fieldname>sid</fieldname>
+   <fieldname>gid</fieldname>
+   <fieldname>type</fieldname>
+   <fieldname>title</fieldname>
+   <fieldname>question</fieldname>
+   <fieldname>preg</fieldname>
+   <fieldname>help</fieldname>
+   <fieldname>other</fieldname>
+   <fieldname>mandatory</fieldname>
+   <fieldname>question_order</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>scale_id</fieldname>
+   <fieldname>same_default</fieldname>
+   <fieldname>relevance</fieldname>
+   <fieldname>modulename</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[253]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question><![CDATA[I think that I would like to use this notation frequently.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[254]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ002]]></title>
+    <question><![CDATA[I find the notation unnecessarily complex.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[255]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ003]]></title>
+    <question><![CDATA[I think the notation would be easy to use.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[256]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ004]]></title>
+    <question><![CDATA[I think that I would need the support of a technical person*** to be able to use this notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[257]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ005]]></title>
+    <question><![CDATA[I find the various functions* in this notation are well integrated.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[258]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ006]]></title>
+    <question><![CDATA[I think there is too much inconsistency** in this notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[259]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ007]]></title>
+    <question><![CDATA[I would imagine that most people would learn to use this notation very quickly.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[260]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ008]]></title>
+    <question><![CDATA[I would find the notation very cumbersome to use.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[8]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[261]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ009]]></title>
+    <question><![CDATA[I would feel very confident using the notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[9]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[262]]></qid>
+    <parent_qid><![CDATA[250]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[31]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ010]]></title>
+    <question><![CDATA[I would need to learn a lot of things before I could get going with this notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[10]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[333]]></qid>
+    <parent_qid><![CDATA[331]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[335]]></qid>
+    <parent_qid><![CDATA[334]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[338]]></qid>
+    <parent_qid><![CDATA[337]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[44]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question><![CDATA[I would like to receive updates on the results of this questionnaire.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[339]]></qid>
+    <parent_qid><![CDATA[337]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[44]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ002]]></title>
+    <question><![CDATA[I am available for follow-up questions on my answers to this questionnaire.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[341]]></qid>
+    <parent_qid><![CDATA[289]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[H]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question><![CDATA[Script Notation]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[342]]></qid>
+    <parent_qid><![CDATA[289]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[H]]></type>
+    <title><![CDATA[SQ002]]></title>
+    <question><![CDATA[Natural-Language Notation]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[343]]></qid>
+    <parent_qid><![CDATA[289]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[H]]></type>
+    <title><![CDATA[SQ003]]></title>
+    <question><![CDATA[Key-Value Notation]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[371]]></qid>
+    <parent_qid><![CDATA[370]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[525]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question><![CDATA[I think that I would like to use this notation frequently.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[526]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ002]]></title>
+    <question><![CDATA[I find the notation unnecessarily complex.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[527]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ003]]></title>
+    <question><![CDATA[I think the notation would be easy to use.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[528]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ004]]></title>
+    <question><![CDATA[I think that I would need the support of a technical person*** to be able to use this notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[529]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ005]]></title>
+    <question><![CDATA[I find the various functions* in this notation are well integrated.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[530]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ006]]></title>
+    <question><![CDATA[I think there is too much inconsistency** in this notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[531]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ007]]></title>
+    <question><![CDATA[I would imagine that most people would learn to use this notation very quickly.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[532]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ008]]></title>
+    <question><![CDATA[I would find the notation very cumbersome to use.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[8]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[533]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ009]]></title>
+    <question><![CDATA[I would feel very confident using the notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[9]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[534]]></qid>
+    <parent_qid><![CDATA[263]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[32]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ010]]></title>
+    <question><![CDATA[I would need to learn a lot of things before I could get going with this notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[10]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[535]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question><![CDATA[I think that I would like to use this notation frequently.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[536]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ002]]></title>
+    <question><![CDATA[I find the notation unnecessarily complex.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[537]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ003]]></title>
+    <question><![CDATA[I think the notation would be easy to use.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[538]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ004]]></title>
+    <question><![CDATA[I think that I would need the support of a technical person*** to be able to use this notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[4]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[539]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ005]]></title>
+    <question><![CDATA[I find the various functions* in this notation are well integrated.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[5]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[540]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ006]]></title>
+    <question><![CDATA[I think there is too much inconsistency** in this notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[6]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[541]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ007]]></title>
+    <question><![CDATA[I would imagine that most people would learn to use this notation very quickly.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[7]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[542]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ008]]></title>
+    <question><![CDATA[I would find the notation very cumbersome to use.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[8]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[543]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ009]]></title>
+    <question><![CDATA[I would feel very confident using the notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[9]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[544]]></qid>
+    <parent_qid><![CDATA[276]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[33]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ010]]></title>
+    <question><![CDATA[I would need to learn a lot of things before I could get going with this notation.]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[10]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[546]]></qid>
+    <parent_qid><![CDATA[545]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question><![CDATA[Author - I have created video-based learning content before (e.g.: educational videos, lecture recordings, modules designed around my own videos)]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[547]]></qid>
+    <parent_qid><![CDATA[545]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ003]]></title>
+    <question><![CDATA[Researcher - I am a researcher in the field of video-based learning / technology enhanced learning / educational technology]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[3]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[555]]></qid>
+    <parent_qid><![CDATA[545]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[63]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ002]]></title>
+    <question><![CDATA[User - I have reused video-based learning content before as a teacher, educator or facilitator (e.g.: YouTube videos from other sources for my own course, lecture recordings from others, videos created by students)]]></question>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[2]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+   <row>
+    <qid><![CDATA[633]]></qid>
+    <parent_qid><![CDATA[632]]></parent_qid>
+    <sid><![CDATA[623939]]></sid>
+    <gid><![CDATA[35]]></gid>
+    <type><![CDATA[T]]></type>
+    <title><![CDATA[SQ001]]></title>
+    <question/>
+    <other><![CDATA[N]]></other>
+    <question_order><![CDATA[1]]></question_order>
+    <language><![CDATA[en]]></language>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+    <modulename/>
+   </row>
+  </rows>
+ </subquestions>
+ <question_attributes>
+  <fields>
+   <fieldname>qid</fieldname>
+   <fieldname>attribute</fieldname>
+   <fieldname>value</fieldname>
+   <fieldname>language</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <qid><![CDATA[250]]></qid>
+    <attribute><![CDATA[random_order]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[263]]></qid>
+    <attribute><![CDATA[random_order]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[276]]></qid>
+    <attribute><![CDATA[random_order]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[331]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[331]]></qid>
+    <attribute><![CDATA[random_order]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[334]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[344]]></qid>
+    <attribute><![CDATA[random_group]]></attribute>
+    <value><![CDATA[randgroup3]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[370]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[370]]></qid>
+    <attribute><![CDATA[random_order]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[550]]></qid>
+    <attribute><![CDATA[text_input_width]]></attribute>
+    <value><![CDATA[2]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[551]]></qid>
+    <attribute><![CDATA[text_input_width]]></attribute>
+    <value><![CDATA[2]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[556]]></qid>
+    <attribute><![CDATA[text_input_width]]></attribute>
+    <value><![CDATA[2]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[629]]></qid>
+    <attribute><![CDATA[text_input_width]]></attribute>
+    <value><![CDATA[2]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[630]]></qid>
+    <attribute><![CDATA[text_input_width]]></attribute>
+    <value><![CDATA[2]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[631]]></qid>
+    <attribute><![CDATA[text_input_width]]></attribute>
+    <value><![CDATA[2]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[632]]></qid>
+    <attribute><![CDATA[answer_width]]></attribute>
+    <value><![CDATA[1]]></value>
+   </row>
+  </rows>
+ </question_attributes>
+ <surveys>
+  <fields>
+   <fieldname>sid</fieldname>
+   <fieldname>gsid</fieldname>
+   <fieldname>admin</fieldname>
+   <fieldname>expires</fieldname>
+   <fieldname>startdate</fieldname>
+   <fieldname>adminemail</fieldname>
+   <fieldname>anonymized</fieldname>
+   <fieldname>faxto</fieldname>
+   <fieldname>format</fieldname>
+   <fieldname>savetimings</fieldname>
+   <fieldname>template</fieldname>
+   <fieldname>language</fieldname>
+   <fieldname>additional_languages</fieldname>
+   <fieldname>datestamp</fieldname>
+   <fieldname>usecookie</fieldname>
+   <fieldname>allowregister</fieldname>
+   <fieldname>allowsave</fieldname>
+   <fieldname>autonumber_start</fieldname>
+   <fieldname>autoredirect</fieldname>
+   <fieldname>allowprev</fieldname>
+   <fieldname>printanswers</fieldname>
+   <fieldname>ipaddr</fieldname>
+   <fieldname>refurl</fieldname>
+   <fieldname>showsurveypolicynotice</fieldname>
+   <fieldname>publicstatistics</fieldname>
+   <fieldname>publicgraphs</fieldname>
+   <fieldname>listpublic</fieldname>
+   <fieldname>htmlemail</fieldname>
+   <fieldname>sendconfirmation</fieldname>
+   <fieldname>tokenanswerspersistence</fieldname>
+   <fieldname>assessments</fieldname>
+   <fieldname>usecaptcha</fieldname>
+   <fieldname>usetokens</fieldname>
+   <fieldname>bounce_email</fieldname>
+   <fieldname>attributedescriptions</fieldname>
+   <fieldname>emailresponseto</fieldname>
+   <fieldname>emailnotificationto</fieldname>
+   <fieldname>tokenlength</fieldname>
+   <fieldname>showxquestions</fieldname>
+   <fieldname>showgroupinfo</fieldname>
+   <fieldname>shownoanswer</fieldname>
+   <fieldname>showqnumcode</fieldname>
+   <fieldname>bouncetime</fieldname>
+   <fieldname>bounceprocessing</fieldname>
+   <fieldname>bounceaccounttype</fieldname>
+   <fieldname>bounceaccounthost</fieldname>
+   <fieldname>bounceaccountpass</fieldname>
+   <fieldname>bounceaccountencryption</fieldname>
+   <fieldname>bounceaccountuser</fieldname>
+   <fieldname>showwelcome</fieldname>
+   <fieldname>showprogress</fieldname>
+   <fieldname>questionindex</fieldname>
+   <fieldname>navigationdelay</fieldname>
+   <fieldname>nokeyboard</fieldname>
+   <fieldname>alloweditaftercompletion</fieldname>
+   <fieldname>googleanalyticsstyle</fieldname>
+   <fieldname>googleanalyticsapikey</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <sid><![CDATA[623939]]></sid>
+    <gsid><![CDATA[1]]></gsid>
+    <admin><![CDATA[Michael Feurstein]]></admin>
+    <expires><![CDATA[2022-09-20 09:42:15]]></expires>
+    <adminemail><![CDATA[michael.feurstein@wu.ac.at]]></adminemail>
+    <anonymized><![CDATA[N]]></anonymized>
+    <faxto/>
+    <format><![CDATA[G]]></format>
+    <savetimings><![CDATA[N]]></savetimings>
+    <template><![CDATA[wu]]></template>
+    <language><![CDATA[en]]></language>
+    <additional_languages/>
+    <datestamp><![CDATA[Y]]></datestamp>
+    <usecookie><![CDATA[N]]></usecookie>
+    <allowregister><![CDATA[N]]></allowregister>
+    <allowsave><![CDATA[Y]]></allowsave>
+    <autonumber_start><![CDATA[86]]></autonumber_start>
+    <autoredirect><![CDATA[N]]></autoredirect>
+    <allowprev><![CDATA[Y]]></allowprev>
+    <printanswers><![CDATA[N]]></printanswers>
+    <ipaddr><![CDATA[N]]></ipaddr>
+    <refurl><![CDATA[N]]></refurl>
+    <showsurveypolicynotice><![CDATA[0]]></showsurveypolicynotice>
+    <publicstatistics><![CDATA[N]]></publicstatistics>
+    <publicgraphs><![CDATA[N]]></publicgraphs>
+    <listpublic><![CDATA[N]]></listpublic>
+    <htmlemail><![CDATA[Y]]></htmlemail>
+    <sendconfirmation><![CDATA[Y]]></sendconfirmation>
+    <tokenanswerspersistence><![CDATA[N]]></tokenanswerspersistence>
+    <assessments><![CDATA[N]]></assessments>
+    <usecaptcha><![CDATA[N]]></usecaptcha>
+    <usetokens><![CDATA[N]]></usetokens>
+    <bounce_email><![CDATA[michael.feurstein@wu.ac.at]]></bounce_email>
+    <emailresponseto/>
+    <emailnotificationto/>
+    <tokenlength><![CDATA[15]]></tokenlength>
+    <showxquestions><![CDATA[N]]></showxquestions>
+    <showgroupinfo><![CDATA[B]]></showgroupinfo>
+    <shownoanswer><![CDATA[N]]></shownoanswer>
+    <showqnumcode><![CDATA[X]]></showqnumcode>
+    <bounceprocessing><![CDATA[N]]></bounceprocessing>
+    <showwelcome><![CDATA[Y]]></showwelcome>
+    <showprogress><![CDATA[Y]]></showprogress>
+    <questionindex><![CDATA[0]]></questionindex>
+    <navigationdelay><![CDATA[0]]></navigationdelay>
+    <nokeyboard><![CDATA[N]]></nokeyboard>
+    <alloweditaftercompletion><![CDATA[N]]></alloweditaftercompletion>
+    <googleanalyticsstyle/>
+    <googleanalyticsapikey/>
+   </row>
+  </rows>
+ </surveys>
+ <surveys_languagesettings>
+  <fields>
+   <fieldname>surveyls_survey_id</fieldname>
+   <fieldname>surveyls_language</fieldname>
+   <fieldname>surveyls_title</fieldname>
+   <fieldname>surveyls_description</fieldname>
+   <fieldname>surveyls_welcometext</fieldname>
+   <fieldname>surveyls_endtext</fieldname>
+   <fieldname>surveyls_policy_notice</fieldname>
+   <fieldname>surveyls_policy_error</fieldname>
+   <fieldname>surveyls_policy_notice_label</fieldname>
+   <fieldname>surveyls_url</fieldname>
+   <fieldname>surveyls_urldescription</fieldname>
+   <fieldname>surveyls_email_invite_subj</fieldname>
+   <fieldname>surveyls_email_invite</fieldname>
+   <fieldname>surveyls_email_remind_subj</fieldname>
+   <fieldname>surveyls_email_remind</fieldname>
+   <fieldname>surveyls_email_register_subj</fieldname>
+   <fieldname>surveyls_email_register</fieldname>
+   <fieldname>surveyls_email_confirm_subj</fieldname>
+   <fieldname>surveyls_email_confirm</fieldname>
+   <fieldname>surveyls_dateformat</fieldname>
+   <fieldname>surveyls_attributecaptions</fieldname>
+   <fieldname>email_admin_notification_subj</fieldname>
+   <fieldname>email_admin_notification</fieldname>
+   <fieldname>email_admin_responses_subj</fieldname>
+   <fieldname>email_admin_responses</fieldname>
+   <fieldname>surveyls_numberformat</fieldname>
+   <fieldname>attachments</fieldname>
+  </fields>
+  <rows>
+   <row>
+    <surveyls_survey_id><![CDATA[623939]]></surveyls_survey_id>
+    <surveyls_language><![CDATA[en]]></surveyls_language>
+    <surveyls_title><![CDATA[Text-based Storyboards for Video-Based Learning]]></surveyls_title>
+    <surveyls_description><![CDATA[<p>This questionnaire aims to find out about your preference towards a text-based notation style in the context of creating a video-based learning module.</p>
+
+<p>Audience addressed:</p>
+
+<ul>
+	<li>Authors of video-based learning content</li>
+	<li>Users of video-based learning content (teachers, educators or facilitators)</li>
+	<li>Researchers in the field of video-based learning / technology enhanced learning / educational technology</li>
+</ul>
+
+<p>Please note that this survey is divided into two parts:</p>
+
+<ol>
+	<li>Introduction to storyboard concept</li>
+	<li>Questionnaire</li>
+</ol>
+
+<p><span style="font-size:14px;"><span style="font-family:Arial,Helvetica,sans-serif;">Estimated time needed to complete this survey: 15 - 25 minutes.</span></span></p>
+]]></surveyls_description>
+    <surveyls_welcometext><![CDATA[<p style="text-align: center;"><img alt="" src="/videoeval/upload/surveys/623939/images/videoSample.png" style="width: 500px; height: 300px;" /></p>
+]]></surveyls_welcometext>
+    <surveyls_endtext><![CDATA[<h1 style="text-align: center;"><span style="color:#2ecc71;"><strong>Thank you for your time, effort and feedback.</strong></span></h1>
+]]></surveyls_endtext>
+    <surveyls_url/>
+    <surveyls_urldescription/>
+    <surveyls_email_invite_subj><![CDATA[Invitation to participate in a survey]]></surveyls_email_invite_subj>
+    <surveyls_email_invite><![CDATA[Dear {FIRSTNAME},<br />
+<br />
+you have been invited to participate in a survey.<br />
+<br />
+The survey is titled:<br />
+"{SURVEYNAME}"<br />
+<br />
+"{SURVEYDESCRIPTION}"<br />
+<br />
+To participate, please click on the link below.<br />
+<br />
+Sincerely,<br />
+<br />
+{ADMINNAME} ({ADMINEMAIL})<br />
+<br />
+----------------------------------------------<br />
+Click here to do the survey:<br />
+{SURVEYURL}<br />
+<br />
+If you do not want to participate in this survey and don't want to receive any more invitations please click the following link:<br />
+{OPTOUTURL}<br />
+<br />
+If you are blacklisted but want to participate in this survey and want to receive invitations please click the following link:<br />
+{OPTINURL}]]></surveyls_email_invite>
+    <surveyls_email_remind_subj><![CDATA[Reminder to participate in a survey]]></surveyls_email_remind_subj>
+    <surveyls_email_remind><![CDATA[Dear {FIRSTNAME},<br />
+<br />
+Recently we invited you to participate in a survey.<br />
+<br />
+We note that you have not yet completed the survey, and wish to remind you that the survey is still available should you wish to take part.<br />
+<br />
+The survey is titled:<br />
+"{SURVEYNAME}"<br />
+<br />
+"{SURVEYDESCRIPTION}"<br />
+<br />
+To participate, please click on the link below.<br />
+<br />
+Sincerely,<br />
+<br />
+{ADMINNAME} ({ADMINEMAIL})<br />
+<br />
+----------------------------------------------<br />
+Click here to do the survey:<br />
+{SURVEYURL}<br />
+<br />
+If you do not want to participate in this survey and don't want to receive any more invitations please click the following link:<br />
+{OPTOUTURL}]]></surveyls_email_remind>
+    <surveyls_email_register_subj><![CDATA[Survey registration confirmation]]></surveyls_email_register_subj>
+    <surveyls_email_register><![CDATA[Dear {FIRSTNAME},<br />
+<br />
+You, or someone using your email address, have registered to participate in an online survey titled {SURVEYNAME}.<br />
+<br />
+To complete this survey, click on the following URL:<br />
+<br />
+{SURVEYURL}<br />
+<br />
+If you have any questions about this survey, or if you did not register to participate and believe this email is in error, please contact {ADMINNAME} at {ADMINEMAIL}.]]></surveyls_email_register>
+    <surveyls_email_confirm_subj><![CDATA[Confirmation of your participation in our survey]]></surveyls_email_confirm_subj>
+    <surveyls_email_confirm><![CDATA[Dear {FIRSTNAME},<br />
+<br />
+this email is to confirm that you have completed the survey titled {SURVEYNAME} and your response has been saved. Thank you for participating.<br />
+<br />
+If you have any further questions about this email, please contact {ADMINNAME} on {ADMINEMAIL}.<br />
+<br />
+Sincerely,<br />
+<br />
+{ADMINNAME}]]></surveyls_email_confirm>
+    <surveyls_dateformat><![CDATA[1]]></surveyls_dateformat>
+    <email_admin_notification_subj><![CDATA[Response submission for survey {SURVEYNAME}]]></email_admin_notification_subj>
+    <email_admin_notification><![CDATA[Hello,<br />
+<br />
+A new response was submitted for your survey '{SURVEYNAME}'.<br />
+<br />
+Click the following link to see the individual response:<br />
+{VIEWRESPONSEURL}<br />
+<br />
+Click the following link to edit the individual response:<br />
+{EDITRESPONSEURL}<br />
+<br />
+View statistics by clicking here:<br />
+{STATISTICSURL}]]></email_admin_notification>
+    <email_admin_responses_subj><![CDATA[Response submission for survey {SURVEYNAME} with results]]></email_admin_responses_subj>
+    <email_admin_responses><![CDATA[Hello,<br />
+<br />
+A new response was submitted for your survey '{SURVEYNAME}'.<br />
+<br />
+Click the following link to see the individual response:<br />
+{VIEWRESPONSEURL}<br />
+<br />
+Click the following link to edit the individual response:<br />
+{EDITRESPONSEURL}<br />
+<br />
+View statistics by clicking here:<br />
+{STATISTICSURL}<br />
+<br />
+<br />
+The following answers were given by the participant:<br />
+{ANSWERTABLE}]]></email_admin_responses>
+    <surveyls_numberformat><![CDATA[0]]></surveyls_numberformat>
+   </row>
+  </rows>
+ </surveys_languagesettings>
+ <themes>
+  <theme>
+   <sid>623939</sid>
+   <template_name>fruity</template_name>
+   <config>
+    <options>inherit</options>
+   </config>
+  </theme>
+  <theme>
+   <sid>623939</sid>
+   <template_name>wu</template_name>
+   <config>
+    <options>inherit</options>
+   </config>
+  </theme>
+ </themes>
+ <themes_inherited>
+  <theme>
+   <sid>623939</sid>
+   <template_name>fruity</template_name>
+   <config>
+    <options>
+     <ajaxmode>on</ajaxmode>
+     <brandlogo>on</brandlogo>
+     <brandlogofile>./files/logo.png</brandlogofile>
+     <container>on</container>
+     <backgroundimage>off</backgroundimage>
+     <animatebody>off</animatebody>
+     <bodyanimation>fadeInRight</bodyanimation>
+     <bodyanimationduration>500</bodyanimationduration>
+     <animatequestion>off</animatequestion>
+     <questionanimation>flipInX</questionanimation>
+     <questionanimationduration>500</questionanimationduration>
+     <animatealert>off</animatealert>
+     <alertanimation>shake</alertanimation>
+     <alertanimationduration>500</alertanimationduration>
+     <font>noto</font>
+     <bodybackgroundcolor>#ffffff</bodybackgroundcolor>
+     <fontcolor>#444444</fontcolor>
+     <questionbackgroundcolor>#ffffff</questionbackgroundcolor>
+     <questionborder>on</questionborder>
+     <questioncontainershadow>on</questioncontainershadow>
+     <checkicon>f00c</checkicon>
+     <animatecheckbox>on</animatecheckbox>
+     <checkboxanimation>rubberBand</checkboxanimation>
+     <checkboxanimationduration>500</checkboxanimationduration>
+     <animateradio>on</animateradio>
+     <radioanimation>zoomIn</radioanimation>
+     <radioanimationduration>500</radioanimationduration>
+     <zebrastriping>off</zebrastriping>
+     <stickymatrixheaders>off</stickymatrixheaders>
+     <greyoutselected>off</greyoutselected>
+     <hideprivacyinfo>off</hideprivacyinfo>
+     <crosshover>off</crosshover>
+     <showpopups>1</showpopups>
+    </options>
+   </config>
+  </theme>
+  <theme>
+   <sid>623939</sid>
+   <template_name>wu</template_name>
+   <config>
+    <options>
+     <ajaxmode>on</ajaxmode>
+     <animatebody>off</animatebody>
+     <container>on</container>
+     <bodyanimation>fadeInRight</bodyanimation>
+     <brandlogo>on</brandlogo>
+     <brandlogofile>./files/logo.png</brandlogofile>
+     <font>noto</font>
+    </options>
+   </config>
+  </theme>
+ </themes_inherited>
+</document>
