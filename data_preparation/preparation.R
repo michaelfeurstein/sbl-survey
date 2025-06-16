@@ -119,7 +119,7 @@ df_prep <- transform(df_prep, sus = as.double(df_prep$sus))
 
 ## Export
 # write to csv
-write.csv(df_prep, "../data-survey-sus_prepared.csv")
+write.csv(df_prep, "../data_prepared/data-survey-sus_prepared.csv")
 
 ###
 ### data-sus-tidy: prepare tidy sus data csv's for graphs ####
@@ -421,9 +421,9 @@ df_kv_tidy <- df_kv_tidy %>%
   )
 
 # write to csv
-write.csv(df_sc_tidy, "../sus_sc_likert_tidy.csv")
-write.csv(df_cnl_tidy, "../sus_cnl_likert_tidy.csv")
-write.csv(df_kv_tidy, "../sus_kv_likert_tidy.csv")
+write.csv(df_sc_tidy, "../data_prepared/sus_sc_likert_tidy.csv")
+write.csv(df_cnl_tidy, "../data_prepared/sus_cnl_likert_tidy.csv")
+write.csv(df_kv_tidy, "../data_prepared/sus_kv_likert_tidy.csv")
 
 ###
 ### profile data ####
@@ -438,7 +438,7 @@ names(df_profile)[which(names(df_profile)=="PARTICIPANTTYPE.SQ003.")] <- "resear
 names(df_profile)[which(names(df_profile)=="PARTICIPANTTYPE.other.")] <- "other"
 
 # write to csv
-write.csv(df_profile, "../data-survey-profiles_prepared.csv")
+write.csv(df_profile, "../data_prepared/data-survey-profiles_prepared.csv")
 
 ###
 ### data-post-hoc ####
@@ -464,7 +464,7 @@ attributes(df_post)$variable.labels[which(names(df_post)=="TEXTwithGUI.SQ001.")]
 names(df_post)[which(names(df_post)=="TEXTwithGUI.SQ001.")] <- "text.with.gui"
 
 # write to csv
-write.csv(df_post, "../data-post-hoc_prepared.csv")
+write.csv(df_post, "../data_prepared/data-post-hoc_prepared.csv")
 
 
 
