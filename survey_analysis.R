@@ -7,6 +7,11 @@ if(!require(svglite)){install.packages("svglite")}
 library(svglite)
 library(ggplot2)
 library(ggtext)
+if(!require(lemon)){install.packages("lemon")}
+library(lemon)
+library(stringr)
+if(!require(ggpubr)){install.packages("ggpubr")}
+library(ggpubr)
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
@@ -15,15 +20,20 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 ####
 
 # read from prepared csv
-df <- read.csv("data-survey-sus_prepared.csv")
+df <- read.csv("data_prepared/data-survey-sus_prepared.csv")
 df <- subset(df, select = -c(X))
 
 # read from prepared csv
 profiledata <- read.csv("data-survey-profiles_prepared.csv")
 
-# read from prepared csv
+# post hoc questions prepared
 posthocdata <- read.csv("data-post-hoc_prepared.csv")
 posthocdata <- head(posthocdata,-1)
+
+# sus responses prepared
+df_sc_tidy <- read.csv("data_prepared/sus_sc_likert_tidy.csv")
+df_cnl_tidy <- read.csv("data_prepared/sus_cnl_likert_tidy.csv")
+df_kv_tidy <- read.csv("data_prepared/sus_kv_likert_tidy.csv")
 
 ####
 # profile ####
@@ -96,18 +106,18 @@ summary(na.omit(profiledata$researchHOWMANYPUB))
 
 ## sus ####
 
-# boxplot - visual inspection
+### boxplot - visual inspection ####
 
 par(mar=c(5, 5, 3, 2))
 boxplot(sus ~ notation, data = df, main = "Usability (System Usability Scale)", xlab = "Notation", ylab = "SUS score", names = c("CNL","KV","SC"))
 
-# reporting mean and sd:
+### reporting mean and sd: ####
 
 df %>%
   group_by(notation) %>%
   summarize(mean = mean(sus), sd = sd(sus), min = min(sus), max = max(sus), med = median(sus), q1 = quantile(sus, 0.25), q3 = quantile(sus, 0.75))
 
-# mean difference
+### mean difference ####
 # values
 sus_cnl <- mean(df$sus[df$notation == "cnl"])
 sus_kv <- mean(df$sus[df$notation == "kv"])
@@ -129,6 +139,254 @@ sus_ratiosckv <- sus_diffsckv/sus_avgsckv
 # percentage
 sus_percent_diff_sckv <- abs(sus_ratiosckv*100)
 print(c("SC/KV mean difference in percentage: ", sus_percent_diff_sckv))
+
+### sus responses ####
+
+# In preparation for plotting we setup a function to define a limit width for strings wrapped
+# Source juliasilge (comment on github from Oct 4, 2022)
+# Link: https://github.com/juliasilge/tidytext/issues/222
+custom_labeler <- function(x) {
+  x %>%
+    str_replace("___.+$", "") %>%
+    str_wrap(width = 50)
+}
+
+#### prepare ####
+
+# First we use mutate and factor to bring questions (PQ and NQ) into desired order for plotting
+
+#kv
+df_kv_tidy <- df_kv_tidy %>% mutate(question_short = substr(question, start = 1, stop = 3))
+
+df_kv_tidy <- df_kv_tidy %>% mutate(question_short = factor(question_short, 
+                                                      levels = c("PQ5",
+                                                                 "PQ4",
+                                                                 "PQ3",
+                                                                 "PQ2",
+                                                                 "PQ1",
+                                                                 "NQ5",
+                                                                 "NQ4",
+                                                                 "NQ3",
+                                                                 "NQ2",
+                                                                 "NQ1")))
+
+df_kv_tidy_individual <- df_kv_tidy %>% mutate(question = factor(question, 
+                                                      levels = c("PQ5. I would feel very confident using the notation.",
+                                                                 "PQ4. I would imagine that most people would learn to use this notation very quickly.",
+                                                                 "PQ3. I find the various functions in this notation are well integrated.",
+                                                                 "PQ2. I think the notation would be easy to use.",
+                                                                 "PQ1. I think that I would like to use this notation frequently.",
+                                                                 "NQ5. I would need to learn a lot of things before I could get going with this notation.",
+                                                                 "NQ4. I would find the notation very cumbersome to use.",
+                                                                 "NQ3. I think there is too much inconsistency in this notation.",
+                                                                 "NQ2. I think that I would need the support of a technical person to be able to use this notation.",
+                                                                 "NQ1. I find the notation unnecessarily complex.")))
+
+#cnl
+df_cnl_tidy <- df_cnl_tidy %>% mutate(question_short = substr(question, start = 1, stop = 3))
+
+df_cnl_tidy <- df_cnl_tidy %>% mutate(question_short = factor(question_short, 
+                                                              levels = c("PQ5",
+                                                                         "PQ4",
+                                                                         "PQ3",
+                                                                         "PQ2",
+                                                                         "PQ1",
+                                                                         "NQ5",
+                                                                         "NQ4",
+                                                                         "NQ3",
+                                                                         "NQ2",
+                                                                         "NQ1")))
+
+df_cnl_tidy_individual <- df_cnl_tidy %>% mutate(question = factor(question, 
+                                                                 levels = c("PQ5. I would feel very confident using the notation.",
+                                                                            "PQ4. I would imagine that most people would learn to use this notation very quickly.",
+                                                                            "PQ3. I find the various functions in this notation are well integrated.",
+                                                                            "PQ2. I think the notation would be easy to use.",
+                                                                            "PQ1. I think that I would like to use this notation frequently.",
+                                                                            "NQ5. I would need to learn a lot of things before I could get going with this notation.",
+                                                                            "NQ4. I would find the notation very cumbersome to use.",
+                                                                            "NQ3. I think there is too much inconsistency in this notation.",
+                                                                            "NQ2. I think that I would need the support of a technical person to be able to use this notation.",
+                                                                            "NQ1. I find the notation unnecessarily complex.")))
+
+#sc
+df_sc_tidy <- df_sc_tidy %>% mutate(question_short = substr(question, start = 1, stop = 3))
+
+df_sc_tidy <- df_sc_tidy %>% mutate(question_short = factor(question_short, 
+                                                            levels = c("PQ5",
+                                                                       "PQ4",
+                                                                       "PQ3",
+                                                                       "PQ2",
+                                                                       "PQ1",
+                                                                       "NQ5",
+                                                                       "NQ4",
+                                                                       "NQ3",
+                                                                       "NQ2",
+                                                                       "NQ1")))
+
+df_sc_tidy_individual <- df_sc_tidy %>% mutate(question = factor(question, 
+                                                                   levels = c("PQ5. I would feel very confident using the notation.",
+                                                                              "PQ4. I would imagine that most people would learn to use this notation very quickly.",
+                                                                              "PQ3. I find the various functions in this notation are well integrated.",
+                                                                              "PQ2. I think the notation would be easy to use.",
+                                                                              "PQ1. I think that I would like to use this notation frequently.",
+                                                                              "NQ5. I would need to learn a lot of things before I could get going with this notation.",
+                                                                              "NQ4. I would find the notation very cumbersome to use.",
+                                                                              "NQ3. I think there is too much inconsistency in this notation.",
+                                                                              "NQ2. I think that I would need the support of a technical person to be able to use this notation.",
+                                                                              "NQ1. I find the notation unnecessarily complex.")))
+
+# Then we factorize the Likert answer scale
+#kv
+df_kv_tidy <- df_kv_tidy %>% mutate(answer = factor(answer, 
+                                                    levels = c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree')))
+
+#cnl
+df_cnl_tidy <- df_cnl_tidy %>% mutate(answer = factor(answer, 
+                                                    levels = c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree')))
+
+#sc
+df_sc_tidy <- df_sc_tidy %>% mutate(answer = factor(answer, 
+                                                      levels = c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree')))
+
+#### 1: kv ####
+
+# The actual plot code using ggplot2
+# option 1: for separate figure use
+survey_kv_sus_responses_individual <- ggplot(df_kv_tidy_individual, aes(x=question, fill=answer)) + 
+  labs(title = "Key-Value Notation", subtitle = "Individual System Usability Scale Responses") +
+  geom_bar(width = 0.7, position = position_stack(reverse = TRUE)) + 
+  scale_fill_manual(values=c("darkred","red", "grey", "darkolivegreen1", "darkgreen")) +
+  scale_y_continuous(expand = expansion(0)) +
+  theme_bw() +
+  theme(axis.text.y=element_text(hjust=0), axis.title.y = element_blank(), axis.title.x =element_blank(), legend.position = "bottom", legend.justification = c(1,1), legend.title = element_blank()) +
+  facet_rep_grid(notion ~ ., scales = "free", repeat.tick.labels = "all") +
+  scale_x_discrete(labels = custom_labeler) +
+  coord_capped_cart(bottom="both", left="both") +
+  coord_flip()
+
+# option 2+3: for horizontal + vertical figure use
+survey_kv_sus_responses <- ggplot(df_kv_tidy, aes(x=question_short, fill=answer)) + 
+  labs(title = "Key-Value Notation") +
+  geom_bar(width = 0.7, position = position_stack(reverse = TRUE)) + 
+  scale_fill_manual(values=c("darkred","red", "grey", "darkolivegreen1", "darkgreen")) +
+  scale_y_continuous(expand = expansion(0)) +
+  theme_bw() +
+  theme(axis.text.y=element_text(hjust=0), axis.title.y = element_blank(), axis.title.x =element_blank(), legend.position = "bottom", legend.justification = c(1,1), legend.title = element_blank()) +
+  facet_rep_grid(notion ~ ., scales = "free", repeat.tick.labels = "all") +
+  scale_x_discrete(labels = custom_labeler) +
+  coord_capped_cart(bottom="both", left="both") +
+  coord_flip()
+
+#### 2: cnl ####
+
+# The actual plot code using ggplot2
+# option 1: for separate figure use
+survey_cnl_sus_responses_individual <- ggplot(df_cnl_tidy_individual, aes(x=question, fill=answer)) + 
+  labs(title = "Controlled Natural-Language Notation", subtitle = "Individual System Usability Scale Responses") +
+  geom_bar(width = 0.7, position = position_stack(reverse = TRUE)) + 
+  scale_fill_manual(values=c("darkred","red", "grey", "darkolivegreen1", "darkgreen")) +
+  scale_y_continuous(expand = expansion(0)) +
+  theme_bw() +
+  theme(axis.text.y=element_text(hjust=0), axis.title.y = element_blank(), axis.title.x =element_blank(), legend.position = "bottom", legend.justification = c(1,1), legend.title = element_blank()) +
+  facet_rep_grid(notion ~ ., scales = "free", repeat.tick.labels = "all") +
+  scale_x_discrete(labels = custom_labeler) +
+  coord_capped_cart(bottom="both", left="both") +
+  coord_flip()
+
+# option 2+3: for horizontal + vertical figure use
+survey_cnl_sus_responses <- ggplot(df_cnl_tidy, aes(x=question_short, fill=answer)) + 
+  labs(title = "Controlled Natural-Language Notation") +
+  geom_bar(width = 0.7, position = position_stack(reverse = TRUE)) + 
+  scale_fill_manual(values=c("darkred","red", "grey", "darkolivegreen1", "darkgreen")) +
+  scale_y_continuous(expand = expansion(0)) +
+  theme_bw() +
+  theme(axis.text.y=element_text(hjust=0), axis.title.y = element_blank(), axis.title.x =element_blank(), legend.position = "bottom", legend.justification = c(1,1), legend.title = element_blank()) +
+  facet_rep_grid(notion ~ ., scales = "free", repeat.tick.labels = "all") +
+  scale_x_discrete(labels = custom_labeler) +
+  coord_capped_cart(bottom="both", left="both") +
+  coord_flip()
+
+#### 3: sc ####
+
+# The actual plot code using ggplot2
+# option 1: for separate figure use
+survey_sc_sus_responses_individual <- ggplot(df_sc_tidy_individual, aes(x=question, fill=answer)) + 
+  labs(title = "Script Notation", subtitle = "Individual System Usability Scale Responses") +
+  geom_bar(width = 0.7, position = position_stack(reverse = TRUE)) + 
+  scale_fill_manual(values=c("darkred","red", "grey", "darkolivegreen1", "darkgreen")) +
+  scale_y_continuous(expand = expansion(0)) +
+  theme_bw() +
+  theme(axis.text.y=element_text(hjust=0), axis.title.y = element_blank(), axis.title.x =element_blank(), legend.position = "bottom", legend.justification = c(1,1), legend.title = element_blank()) +
+  facet_rep_grid(notion ~ ., scales = "free", repeat.tick.labels = "all") +
+  scale_x_discrete(labels = custom_labeler) +
+  coord_capped_cart(bottom="both", left="both") +
+  coord_flip()
+
+# option 2+3: for horizontal + vertical figure use
+survey_sc_sus_responses <- ggplot(df_sc_tidy, aes(x=question_short, fill=answer)) + 
+  labs(title = "Script Notation") +
+  geom_bar(width = 0.7, position = position_stack(reverse = TRUE)) + 
+  scale_fill_manual(values=c("darkred","red", "grey", "darkolivegreen1", "darkgreen")) +
+  scale_y_continuous(expand = expansion(0)) +
+  theme_bw() +
+  theme(axis.text.y=element_text(hjust=0), axis.title.y = element_blank(), axis.title.x =element_blank(), legend.position = "bottom", legend.justification = c(1,1), legend.title = element_blank()) +
+  facet_rep_grid(notion ~ ., scales = "free", repeat.tick.labels = "all") +
+  scale_x_discrete(labels = custom_labeler) +
+  coord_capped_cart(bottom="both", left="both") +
+  coord_flip()
+
+#### all: kv/cnl/sc ####
+
+# combine with ggarange
+# option 2: horizontal
+sus_responses_horizontal <- ggarrange(survey_kv_sus_responses, survey_cnl_sus_responses, survey_sc_sus_responses, ncol=3, nrow=1, common.legend = TRUE, legend="bottom")
+
+# option 3: vertical
+sus_responses_all <- ggarrange(survey_kv_sus_responses, survey_cnl_sus_responses, survey_sc_sus_responses, ncol=1, nrow=3, common.legend = TRUE, legend="bottom")
+
+bottom_text <- c("Questions: \n NQ1: I find the notation unnecessarily complex.\n NQ2: I think that I would need the support of a technical person to be able to use this notation.\n NQ3: I think there is too much inconsistency in this notation.\n NQ4: I would find the notation very cumbersome to use.\n NQ5: I would need to learn a lot of things before I could get going with this notation.\n PQ1: I think that I would like to use this notation frequently.\n PQ2: I think the notation would be easy to use.\n PQ3: I find the various functions in this notation are well integrated.\n PQ4: I would imagine that most people would learn to use this notation very quickly.\n PQ5: I would feel very confident using the notation.")
+
+# option 2: horizontal
+sus_responses_all_final_horizontal <- annotate_figure(sus_responses_horizontal,
+                top = text_grob("Individual System Usability Scale Responses", hjust = 2.3, size = 14, face = "bold"),
+                bottom = text_grob(bottom_text,
+                                   hjust = 1, x = 1, size = 10)
+)
+
+# option 3: vertical
+sus_responses_all_final <- annotate_figure(sus_responses_all,
+                                           top = text_grob("Individual System Usability Scale Responses", hjust = 2.3, size = 14, face = "bold"),
+                                           bottom = text_grob(bottom_text,
+                                                              hjust = 1, x = 1, size = 10)
+)
+
+# save
+# option 1: individual figures
+# kv
+ggsave(file="plots/survey_kv_sus_responses.svg", plot=survey_kv_sus_responses_individual, width = 8.15, height = 5.87)
+ggsave(file="plots/survey_kv_sus_responses.eps", plot=survey_kv_sus_responses_individual, width = 8.15, height = 5.87)
+
+# cnl
+ggsave(file="plots/survey_cnl_sus_responses.svg", plot=survey_cnl_sus_responses_individual, width = 8.15, height = 5.87)
+ggsave(file="plots/survey_cnl_sus_responses.eps", plot=survey_cnl_sus_responses_individual, width = 8.15, height = 5.87)
+
+# sc
+ggsave(file="plots/survey_sc_sus_responses.svg", plot=survey_sc_sus_responses_individual, width = 8.15, height = 5.87)
+ggsave(file="plots/survey_sc_sus_responses.eps", plot=survey_sc_sus_responses_individual, width = 8.15, height = 5.87)
+
+# option 2: horizontal
+ggsave(file="plots/survey_all_sus_responses_horizontal.svg", plot=sus_responses_all_final_horizontal, width = 20, height = 10)
+ggsave(file="plots/survey_all_sus_responses_horizontal.eps", plot=sus_responses_all_final_horizontal, width = 20, height = 10)
+
+# option 3: vertical
+ggsave(file="plots/survey_all_sus_responses_vertical.svg", plot=sus_responses_all_final, width = 10, height = 20)
+ggsave(file="plots/survey_all_sus_responses_vertical.eps", plot=sus_responses_all_final, width = 10, height = 20)
+
+
+
+
+
 
 ####
 # post-hoc questions ####

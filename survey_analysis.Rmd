@@ -31,6 +31,11 @@ if(!require(svglite)){install.packages("svglite")}
 library(svglite)
 library(ggplot2)
 library(ggtext)
+if(!require(lemon)){install.packages("lemon")}
+library(lemon)
+library(stringr)
+if(!require(ggpubr)){install.packages("ggpubr")}
+library(ggpubr)
 ```
 
 ### Load Data
@@ -38,14 +43,23 @@ library(ggtext)
 File: ***"data_survey_prepared.csv"*** - contains calculated sus-score.
 ```{r}
 # read from prepared csv
-df <- read.csv("data-survey-sus_prepared.csv")
+df <- read.csv("data_prepared/data-survey-sus_prepared.csv")
+df <- subset(df, select = -c(X))
 ```
 
 File: ***participant_profiles_anon_prepared.csv*** - contains all anonymized data on participants and their profile (self assessed role: author, user, researcher, other and meta data on activity in field: no of videos, no of papers, no of courses etc.)
 ```{r}
 # read from prepared csv
-profiledata <- read.csv("data-survey-profiles_prepared.csv")
+profiledata <- read.csv("data_prepared/data-survey-profiles_prepared.csv")
 ```
+
+Files: ***sus_sc_likert_tidy.csv***, ***sus_cnl_likert_tidy.csv*** and ***sus_cnl_likert_tidy.csv*** - contain individual responses to the System Usability Scale questions.
+```{r}
+df_sc_tidy <- read.csv("data_prepared/sus_sc_likert_tidy.csv")
+df_cnl_tidy <- read.csv("data_prepared/sus_cnl_likert_tidy.csv")
+df_kv_tidy <- read.csv("data_prepared/sus_kv_likert_tidy.csv")
+```
+
 
 File: ***data-post-hoc_prepared.csv*** - contains post-hoc questions
 ```{r}
@@ -80,11 +94,27 @@ df_p$Frequency = as.numeric(as.character(df_p$Frequency))
 # this way it's displayed descending in horizontal barplot
 df_p <- df_p[order(df_p$Frequency),] 
 
-# plot barplot
-counts <- table(df_p$Frequency)
-par(mar=c(3, 7, 3, 3))
-profile_plot <- barplot(height=df_p$Frequency, names=df_p$Profile, main="Participant Profiles", horiz=T,las=1,xlim=c(0,50),width = c(2,2,2,2,2))
-text(x=df_p$Frequency, profile_plot, labels = paste(df_p$Frequency), pos=4, offset=0.3, xpd=T)
+# barplot function
+plot_profiles <- function() {
+  counts <- table(df_p$Frequency)
+  par(mar=c(3, 7, 3, 3))
+  profile_plot <- barplot(height=df_p$Frequency, names=df_p$Profile, main="Participant Profiles", horiz=T,las=1,xlim=c(0,50),width = c(2,2,2,2,2))
+  text(x=df_p$Frequency, profile_plot, labels = paste(df_p$Frequency), pos=4, offset=0.3, xpd=T)
+}
+
+# save barplot as EPS
+setEPS()
+postscript("plots/participant_profiles.eps", width = 7, height = 3.5)
+plot_profiles()
+dev.off()
+
+# save barplot as PNG
+png(filename="plots/participant_profiles.png")
+plot_profiles()
+dev.off()
+
+# print barplot
+plot_profiles()
 ```
 
 #### Profile Details
@@ -136,8 +166,25 @@ summary(na.omit(profiledata$researchHOWMANYPUB))
 
 **Boxplot:** Visual inspection of data, using a boxplot.
 ```{r}
-par(mar=c(5, 5, 3, 2))
-boxplot(sus ~ notation, data = df, main = "Usability (System Usability Scale)", xlab = "Notation", ylab = "SUS score", names = c("CNL","KV","SC"))
+plot_boxplot_sus <- function() {
+  df$notation <- factor(df$notation, levels=c("kv","cnl","sc"))
+  par(mar=c(5, 5, 3, 2))
+  boxplot(sus ~ notation, data = df, main = "Usability (System Usability Scale)", xlab = "Notation", ylab = "SUS score", names =c("KV","CNL","SC"))
+}
+
+# save barplot as EPS
+setEPS()
+postscript("plots/survey_sus_boxplots.eps")
+plot_boxplot_sus()
+dev.off()
+
+# save barplot as PNG
+png(filename="plots/survey_sus_boxplots.png")
+plot_boxplot_sus()
+dev.off()
+
+# print boxplot
+plot_boxplot_sus()
 ```
 
 **Summary:** For reporting of mean (min, q1, mdn, q2, max) and sd:
@@ -172,6 +219,139 @@ sus_ratiosckv <- sus_diffsckv/sus_avgsckv
 sus_percent_diff_sckv <- abs(sus_ratiosckv*100)
 print(c("SC/KV mean difference in percentage: ", sus_percent_diff_sckv))
 ```
+
+**Stacked Barplots:** Detailed response results to the individual SUS questions
+
+The following stacked bar plots have been used and reported by Ivanchikj et al. (2020) (see [References] and [DOI](https://doi.org/10.1145/3365438.3410990)). For the purpose of this thesis the style and reporting has been replicated with our data.
+
+SUS Responses for Key-value based notation
+```{r}
+# In preparation for plotting we setup a function to define a limit width for strings wrapped
+# Source juliasilge (comment on github from Oct 4, 2022)
+# Link: https://github.com/juliasilge/tidytext/issues/222
+custom_labeler <- function(x) {
+  x %>%
+    str_replace("___.+$", "") %>%
+    str_wrap(width = 50)
+}
+
+# First we use mutate and factor to bring questions (PQ and NQ) into desired order for plotting
+#kv
+df_kv_tidy <- df_kv_tidy %>% mutate(question_short = substr(question, start = 1, stop = 3))
+
+df_kv_tidy <- df_kv_tidy %>% mutate(question_short = factor(question_short, 
+                                                      levels = c("PQ5",
+                                                                 "PQ4",
+                                                                 "PQ3",
+                                                                 "PQ2",
+                                                                 "PQ1",
+                                                                 "NQ5",
+                                                                 "NQ4",
+                                                                 "NQ3",
+                                                                 "NQ2",
+                                                                 "NQ1")))
+
+#cnl
+df_cnl_tidy <- df_cnl_tidy %>% mutate(question_short = substr(question, start = 1, stop = 3))
+
+df_cnl_tidy <- df_cnl_tidy %>% mutate(question_short = factor(question_short, 
+                                                              levels = c("PQ5",
+                                                                         "PQ4",
+                                                                         "PQ3",
+                                                                         "PQ2",
+                                                                         "PQ1",
+                                                                         "NQ5",
+                                                                         "NQ4",
+                                                                         "NQ3",
+                                                                         "NQ2",
+                                                                         "NQ1")))
+
+#sc
+df_sc_tidy <- df_sc_tidy %>% mutate(question_short = substr(question, start = 1, stop = 3))
+
+df_sc_tidy <- df_sc_tidy %>% mutate(question_short = factor(question_short, 
+                                                            levels = c("PQ5",
+                                                                       "PQ4",
+                                                                       "PQ3",
+                                                                       "PQ2",
+                                                                       "PQ1",
+                                                                       "NQ5",
+                                                                       "NQ4",
+                                                                       "NQ3",
+                                                                       "NQ2",
+                                                                       "NQ1")))
+
+# Then we factorize the Likert answer scale
+#kv
+df_kv_tidy <- df_kv_tidy %>% mutate(answer = factor(answer, levels = c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree')))
+
+#cnl
+df_cnl_tidy <- df_cnl_tidy %>% mutate(answer = factor(answer, levels = c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree')))
+
+#sc
+df_sc_tidy <- df_sc_tidy %>% mutate(answer = factor(answer, levels = c('Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree')))
+
+# The actual plots
+# kv
+# option 2+3: for horizontal + vertical figure use
+survey_kv_sus_responses <- ggplot(df_kv_tidy, aes(x=question_short, fill=answer)) + 
+  labs(title = "Key-Value Notation") +
+  geom_bar(width = 0.7, position = position_stack(reverse = TRUE)) + 
+  scale_fill_manual(values=c("darkred","red", "grey", "darkolivegreen1", "darkgreen")) +
+  scale_y_continuous(expand = expansion(0)) +
+  theme_bw() +
+  theme(axis.text.y=element_text(hjust=0), axis.title.y = element_blank(), axis.title.x =element_blank(), legend.position = "bottom", legend.justification = c(1,1), legend.title = element_blank()) +
+  facet_rep_grid(notion ~ ., scales = "free", repeat.tick.labels = "all") +
+  scale_x_discrete(labels = custom_labeler) +
+  coord_capped_cart(bottom="both", left="both") +
+  coord_flip()
+
+# cnl
+# option 2+3: for horizontal + vertical figure use
+survey_cnl_sus_responses <- ggplot(df_cnl_tidy, aes(x=question_short, fill=answer)) + 
+  labs(title = "Controlled Natural-Language Notation") +
+  geom_bar(width = 0.7, position = position_stack(reverse = TRUE)) + 
+  scale_fill_manual(values=c("darkred","red", "grey", "darkolivegreen1", "darkgreen")) +
+  scale_y_continuous(expand = expansion(0)) +
+  theme_bw() +
+  theme(axis.text.y=element_text(hjust=0), axis.title.y = element_blank(), axis.title.x =element_blank(), legend.position = "bottom", legend.justification = c(1,1), legend.title = element_blank()) +
+  facet_rep_grid(notion ~ ., scales = "free", repeat.tick.labels = "all") +
+  scale_x_discrete(labels = custom_labeler) +
+  coord_capped_cart(bottom="both", left="both") +
+  coord_flip()
+
+# sc
+# option 2+3: for horizontal + vertical figure use
+survey_sc_sus_responses <- ggplot(df_sc_tidy, aes(x=question_short, fill=answer)) + 
+  labs(title = "Script Notation") +
+  geom_bar(width = 0.7, position = position_stack(reverse = TRUE)) + 
+  scale_fill_manual(values=c("darkred","red", "grey", "darkolivegreen1", "darkgreen")) +
+  scale_y_continuous(expand = expansion(0)) +
+  theme_bw() +
+  theme(axis.text.y=element_text(hjust=0), axis.title.y = element_blank(), axis.title.x =element_blank(), legend.position = "bottom", legend.justification = c(1,1), legend.title = element_blank()) +
+  facet_rep_grid(notion ~ ., scales = "free", repeat.tick.labels = "all") +
+  scale_x_discrete(labels = custom_labeler) +
+  coord_capped_cart(bottom="both", left="both") +
+  coord_flip()
+
+# save
+# option 3: vertical
+sus_responses_all <- ggarrange(survey_kv_sus_responses, survey_cnl_sus_responses, survey_sc_sus_responses, ncol=1, nrow=3, common.legend = TRUE, legend="bottom")
+
+bottom_text <- c("Questions: \n NQ1: I find the notation unnecessarily complex.\n NQ2: I think that I would need the support of a technical person to be able to use this notation.\n NQ3: I think there is too much inconsistency in this notation.\n NQ4: I would find the notation very cumbersome to use.\n NQ5: I would need to learn a lot of things before I could get going with this notation.\n PQ1: I think that I would like to use this notation frequently.\n PQ2: I think the notation would be easy to use.\n PQ3: I find the various functions in this notation are well integrated.\n PQ4: I would imagine that most people would learn to use this notation very quickly.\n PQ5: I would feel very confident using the notation.")
+
+# option 3: vertical
+sus_responses_all_final <- annotate_figure(sus_responses_all,
+                                           top = text_grob("Individual System Usability Scale Responses", hjust = 2.3, size = 14, face = "bold"),
+                                           bottom = text_grob(bottom_text,
+                                                              hjust = 1, x = 1, size = 10)
+)
+
+# option 3: vertical
+ggsave(file="plots/survey_all_sus_responses_vertical.svg", plot=sus_responses_all_final, width = 10, height = 20)
+ggsave(file="plots/survey_all_sus_responses_vertical.eps", plot=sus_responses_all_final, width = 10, height = 20)
+```
+
 
 ### Post-hoc Questions
 
