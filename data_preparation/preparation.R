@@ -426,6 +426,16 @@ write.csv(df_cnl_tidy, "../data_prepared/sus_cnl_likert_tidy.csv")
 write.csv(df_kv_tidy, "../data_prepared/sus_kv_likert_tidy.csv")
 
 ###
+### ranking ####
+###
+
+# remove unnecessary columns
+df_ranking <- subset(mydata, select=c(subject,id,seed,RANKING.SQ001.,RANKING.SQ002.,RANKING.SQ003.))
+
+# write to csv
+write.csv(df_ranking, "../data_prepared/data-survey-ranking_prepared.csv")
+
+###
 ### profile data ####
 ###
 
