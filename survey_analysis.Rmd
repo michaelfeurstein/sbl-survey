@@ -60,6 +60,12 @@ df_cnl_tidy <- read.csv("data_prepared/sus_cnl_likert_tidy.csv")
 df_kv_tidy <- read.csv("data_prepared/sus_kv_likert_tidy.csv")
 ```
 
+File: ***data-survey-ranking_prepared.csv*** contains ranking 1st, 2nd, 3rd place and no preference for each notation.
+```{r}
+# ranking prepared
+ranking <- read.csv("data_prepared/data-survey-ranking_prepared.csv")
+```
+
 
 File: ***data-post-hoc_prepared.csv*** - contains post-hoc questions
 ```{r}
@@ -350,6 +356,36 @@ sus_responses_all_final <- annotate_figure(sus_responses_all,
 # option 3: vertical
 ggsave(file="plots/survey_all_sus_responses_vertical.svg", plot=sus_responses_all_final, width = 10, height = 20)
 ggsave(file="plots/survey_all_sus_responses_vertical.eps", plot=sus_responses_all_final, width = 10, height = 20)
+```
+#### Ranking (Personal Preference)
+
+**Stacked Barplot:** Visual inspection of data, using a stacked barplot.
+
+```{r}
+counts_SC <- count(ranking, RANKING.SQ001.)
+counts_CNL <- count(ranking, RANKING.SQ002.)
+counts_KV <- count(ranking, RANKING.SQ003.)
+
+notation <- c(rep(c("SC"),4),rep(c("CNL"),4),rep(c("KV"),4))
+ranking <- rep(c("1st place","2nd place","3rd place","no preference"), 3)  
+counts <- c(counts_SC$n[2:5],counts_CNL$n[2:5],counts_KV$n[2:5])
+data_ranking <- data.frame(notation,ranking,counts)
+
+desired_order <- c("KV","CNL","SC")
+# Re-order the levels
+data_ranking$notation <- factor( as.character(data_ranking$notation), levels=desired_order )
+
+# Stacked + count inside bars
+survey_ranking_stacked <- ggplot(data_ranking, aes(fill=ranking, y=counts, x=notation)) + 
+  geom_bar(position="fill", stat = "identity") +
+  geom_text(aes(label=after_stat(counts)), stat="identity", position="fill", vjust = 1.2, size = 2) +
+  scale_y_continuous(labels = scales::label_percent(scale = 55, prefix = "", suffix = "")) +
+  labs(title = "Personal Ranking of Notations", subtitle = "Ranking based on personal preference for notation", x = "Notation", y = "Counts", fill = "Ranking") +
+  theme_bw()
+
+# save
+ggsave(file="plots/survey_ranking_stacked.svg", plot=survey_ranking_stacked, width = 9, height = 5.87)
+ggsave(file="plots/survey_ranking_stacked.eps", plot=survey_ranking_stacked, width = 9, height = 5.87)
 ```
 
 
