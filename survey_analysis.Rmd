@@ -380,12 +380,12 @@ survey_ranking_stacked <- ggplot(data_ranking, aes(fill=ranking, y=counts, x=not
   geom_bar(position="fill", stat = "identity") +
   geom_text(aes(label=after_stat(counts)), stat="identity", position="fill", vjust = 1.2, size = 2) +
   scale_y_continuous(labels = scales::label_percent(scale = 55, prefix = "", suffix = "")) +
-  labs(title = "Personal Ranking of Notations", subtitle = "Ranking based on personal preference for notation", x = "Notation", y = "Counts", fill = "Ranking") +
+  labs(title = "Personal Ranking of Notations", subtitle = "Ranking based on personal preference for notation", x = "Notation", y = "Counts", fill = "Ranking", caption = "1st place: The notation you could imagine working with and formulating storyboards with.\n2nd place: The notation you could imagine working with, given some time to learn / help needed.\n3rd place: the notation you could NOT imagine working with.") +
   theme_bw()
 
 # save
-ggsave(file="plots/survey_ranking_stacked.svg", plot=survey_ranking_stacked, width = 9, height = 5.87)
-ggsave(file="plots/survey_ranking_stacked.eps", plot=survey_ranking_stacked, width = 9, height = 5.87)
+ggsave(file="plots/survey_ranking_stacked.svg", plot=survey_ranking_stacked, width = 9, height = 6)
+ggsave(file="plots/survey_ranking_stacked.eps", plot=survey_ranking_stacked, width = 9, height = 6)
 ```
 
 
