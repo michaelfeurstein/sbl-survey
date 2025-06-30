@@ -25,6 +25,7 @@ This notebook is a supplementary material for Chapter "Perceived Usability Surve
 
 ```{r message=FALSE, warning=FALSE}
 library(dplyr)
+library(tidyr)
 if(!require(likert)){install.packages("likert")}
 library(likert)
 if(!require(svglite)){install.packages("svglite")}
@@ -36,6 +37,13 @@ library(lemon)
 library(stringr)
 if(!require(ggpubr)){install.packages("ggpubr")}
 library(ggpubr)
+if(!require(nortest)){install.packages("nortest")}
+library(nortest)
+library(rstatix)
+if(!require(PMCMRplus)){install.packages("PMCMRplus")}
+library(PMCMRplus)
+if(!require(tsutils)){install.packages("tsutils")}
+library(tsutils)
 ```
 
 ### Load Data
@@ -70,7 +78,7 @@ ranking <- read.csv("data_prepared/data-survey-ranking_prepared.csv")
 File: ***data-post-hoc_prepared.csv*** - contains post-hoc questions
 ```{r}
 # read from prepared csv
-posthocdata <- read.csv("data-post-hoc_prepared.csv")
+posthocdata <- read.csv("data_prepared/data-post-hoc_prepared.csv")
 posthocdata <- head(posthocdata,-1)
 ```
 
@@ -125,6 +133,9 @@ plot_profiles()
 
 #### Profile Details
 
+***Authors***
+
+- Years active:
 ```{r}
 # Author 
 ## Years active
@@ -132,38 +143,57 @@ plot_profiles()
 ## recordings or other video-based learning content?
 profiledata$authorHOWMANYYEARS <- as.numeric(as.character(profiledata$authorHOWMANYYEARS))
 summary(na.omit(profiledata$authorHOWMANYYEARS))
+```
 
+- Videos created:
+```{r}
 ## Videos created 
 ## How many educational videos, lecture recordings or other video-based learning
 ## content have you produced until now?
 profiledata$authorHOWMANYVIDEOS <- as.numeric(as.character(profiledata$authorHOWMANYVIDEOS))
 summary(na.omit(profiledata$authorHOWMANYVIDEOS))
+```
+
+***Users***
+
+- Years active:
+```{r}
 
 # User 
 ## Years active
 ## How many years have you been using video-based learning content?
 profiledata$userHOWMANYYEARS <- as.numeric(as.character(profiledata$userHOWMANYYEARS))
 summary(na.omit(profiledata$userHOWMANYYEARS))
+```
 
+- Courses taught:
+```{r}
 ## Courses
 ## How many courses have you tought with the support of video-based learning con-
 ## tent? Please also count recurring courses, which possibly took place each semester.
 profiledata$userHOWMANYCOURSES <- as.numeric(as.character(profiledata$userHOWMANYCOURSES))
 summary(na.omit(profiledata$userHOWMANYCOURSES))
+```
 
+***Researchers***
+
+- Years active:
+```{r}
 # Researcher
 ## Years researching
 ## How many years have you conducted research in the field of video-based learning
 ## / technology enhanced learning / educational technology?
 profiledata$researchHOWMANYYEARS <- as.numeric(as.character(profiledata$researchHOWMANYYEARS))
 summary(na.omit(profiledata$researchHOWMANYYEARS))
+```
 
+- Papers published:
+```{r}
 ## Papers published
 ## How many papers have you published in the field of video-based learning? 
 profiledata$researchHOWMANYPUB <- as.numeric(as.character(profiledata$researchHOWMANYPUB))
 summary(na.omit(profiledata$researchHOWMANYPUB))
 ```
-
 
 
 ### Dependent Variables
@@ -209,21 +239,30 @@ sus_kv <- mean(df$sus[df$notation == "kv"])
 sus_sc <- mean(df$sus[df$notation == "sc"])
 # difference between cnl kv: cnl-kv
 sus_diffcnlkv <- sus_cnl-sus_kv
-# avergae of nl kv
+# average of cnl kv
 sus_avgcnlkv <- (sus_cnl+sus_kv)/2
 sus_ratiocnlkv <- sus_diffcnlkv/sus_avgcnlkv
 # percentage
 sus_percent_diff_cnlkv <- abs(sus_ratiocnlkv*100)
-print(c("CNL/KV mean difference in percentage: ", sus_percent_diff_cnlkv))
+print(paste0("CNL-KV mean difference in percentage: ", sus_percent_diff_cnlkv))
 
 # difference between sc kv: sc-kv
 sus_diffsckv <- sus_sc-sus_kv
-# avergae of nl kv
+# avergae of sc kv
 sus_avgsckv <- (sus_sc+sus_kv)/2
 sus_ratiosckv <- sus_diffsckv/sus_avgsckv
 # percentage
 sus_percent_diff_sckv <- abs(sus_ratiosckv*100)
-print(c("SC/KV mean difference in percentage: ", sus_percent_diff_sckv))
+print(paste0("SC-KV mean difference in percentage: ", sus_percent_diff_sckv))
+
+# difference between sc cnl: sc-cnl
+sus_diffsccnl <- sus_sc-sus_cnl
+# avergae of sc cnl
+sus_avgsccnl <- (sus_sc+sus_cnl)/2
+sus_ratiosccnl <- sus_diffsccnl/sus_avgsccnl
+# percentage
+sus_percent_diff_sccnl <- abs(sus_ratiosccnl*100)
+print(paste0("SC-CNL mean difference in percentage: ", sus_percent_diff_sccnl))
 ```
 
 **Stacked Barplots:** Detailed response results to the individual SUS questions
@@ -356,7 +395,14 @@ sus_responses_all_final <- annotate_figure(sus_responses_all,
 # option 3: vertical
 ggsave(file="plots/survey_all_sus_responses_vertical.svg", plot=sus_responses_all_final, width = 10, height = 20)
 ggsave(file="plots/survey_all_sus_responses_vertical.eps", plot=sus_responses_all_final, width = 10, height = 20)
+ggsave(file="plots/survey_all_sus_responses_vertical.png", plot=sus_responses_all_final, width = 10, height = 20)
 ```
+
+```{r, echo=FALSE, out.width="95%", fig.cap="Figure: plots/survey_all_sus_responses_vertical.png"}
+knitr::include_graphics("plots/survey_all_sus_responses_vertical.png")
+```
+
+
 #### Ranking (Personal Preference)
 
 **Stacked Barplot:** Visual inspection of data, using a stacked barplot.
@@ -386,6 +432,8 @@ survey_ranking_stacked <- ggplot(data_ranking, aes(fill=ranking, y=counts, x=not
 # save
 ggsave(file="plots/survey_ranking_stacked.svg", plot=survey_ranking_stacked, width = 9, height = 6)
 ggsave(file="plots/survey_ranking_stacked.eps", plot=survey_ranking_stacked, width = 9, height = 6)
+#print
+survey_ranking_stacked
 ```
 
 
@@ -436,27 +484,205 @@ title <- "Post-hoc Questions"
 q1_plot <- plot(likert(summary = df_posthoc_all), group.order = c("Q1", "Q2", "Q3", "Q4")) +
   labs(title = title, y = "Percentage", caption = "<b>Q1 Efficiency:</b> Do you agree with the statement that a text-based approach could be more efficient?<br><b>Q2 Effectiveness:</b> Do you agree with the statement that a text-based approach could be more effective?<br><b>Q3 Textual notation as a first step:</b> Could you imagine using a textual notation as a starting point to sketch out<br>the main structure of a learning module in order to continue editing in a graphical user interface (GUI)?<br><b>Q4 Textual notation combined with GUI:</b> Could you imagine using a textual notation in combination with<br>an editing environment in a graphical user interface (GUI), allowing you to refine and switch between<br>textual notation and GUI representation?") +
   theme(plot.caption = element_markdown())
-  
-q1_plot
 
 #save in variable image to export to svg
 image=q1_plot
 #save
 ggsave(file="plots/posthoc_questions.svg", plot=image, width=7, height=5)
+# print  
+q1_plot
 ```
 
 ## Results and Hypothesis Tests
 
-### Tests of Normality
+### Usability (SUS Score)
 
-#### Usability (SUS Score)
+#### Tests of Normality
 
 Two types of visual inspections (histograms and qq-plots) and two types of statistical tests (Shapiro-Wilk and Skewness-Test).
 
 **Result:** Data is not normal. Boxcox transformation is used.
 
+##### Histogram
+
 ```{r}
-# boxcox transform sus
-df$sus.boxcox = (df$sus^3.2-1)/3.2
+##### histogram ####
+# kv
+hist(df$sus[df$notation == "kv"], main="KV SUS-scores without transformation", xlab="SUS-score", ylim = range(pretty(c(0,20))), xlim = range(pretty(c(0,100))))
+#hist(df$sus.boxcox[df$notation.r == "key-value"], main="KV SUS scores transformed", xlab="SUS Score (transformed)", ylim = range(pretty(c(0,15))))
+
+# cnl
+hist(df$sus[df$notation == "cnl"], main="CNL SUS-scores without transformation", xlab="SUS-score", ylim = range(pretty(c(0,15))), xlim = range(pretty(c(0,100))))
+#hist(df$sus.boxcox[df$notation == "cnl"], main="CNL SUS-scores transformed", xlab="SUS Score (transformed)", ylim = range(pretty(c(0,10))))
+
+# sc
+hist(df$sus[df$notation == "sc"], main="SC SUS-scores without transformation", xlab="SUS-score", ylim = range(pretty(c(0,15))), xlim = range(pretty(c(0,100))))
+#hist(df$sus.boxcox[df$notation.r == "key-value"], main="KV SUS scores transformed", xlab="SUS Score (transformed)", ylim = range(pretty(c(0,15))))
+
 ```
+
+##### QQ-Plots
+
+Normal probability plot of residuals for KV notation.
+
+```{r}
+qqnorm(df$sus[df$notation == "kv"], pch = 1, frame = FALSE, main = "KV Normal Q-Q Plot for SUS-scores")
+qqline(df$sus[df$notation == "kv"], col = "steelblue", lwd = 2)
+```
+
+Normal probability plot of residuals for KV notation.
+
+```{r}
+qqnorm(df$sus[df$notation == "cnl"], pch = 1, frame = FALSE, main = "CNL Normal Q-Q Plot for SUS-scores")
+qqline(df$sus[df$notation == "cnl"], col = "steelblue", lwd = 2)
+```
+
+Normal probability plot of residuals for SC notation.
+
+```{r}
+qqnorm(df$sus[df$notation == "sc"], pch = 1, frame = FALSE, main = "SC Normal Q-Q Plot for SUS-scores")
+qqline(df$sus[df$notation == "sc"], col = "steelblue", lwd = 2)
+```
+
+##### Lilliefors Test (Kolmogorov Smirnov Test)
+
+Null hypothesis: data is normal
+Alternative hypothesis: data is not normal
+
+```{r}
+# kv
+lillie.test(df$sus[df$notation == "kv"])
+```
+The p-value is not less than 0.05, we therefore cannot reject the null hypothesis. **Result: data normal; use parametric tests.**
+
+```{r}
+# cnl
+lillie.test(df$sus[df$notation == "cnl"])
+```
+The p-value is not less than 0.05, we therefore cannot reject the null hypothesis. **Result: data normal; use parametric tests.**
+
+```{r}
+# sc
+lillie.test(df$sus[df$notation == "sc"])
+```
+The p-value is less than 0.05, we therefore reject the null hypothesis. **Result: data is not normal; use non-parametric tests.**
+
+##### Shapiro-Wilk Test
+
+Null hypothesis: data is normal
+Alternative hypothesis: data is not normal
+
+```{r}
+# kv
+shapiro.test(df$sus[df$notation == "kv"])
+```
+The p-value is less than 0.05, we therefore reject the null hypothesis. **Result: data is not normal; use non-parametric tests.**
+
+```{r}
+# cnl
+shapiro.test(df$sus[df$notation == "cnl"])
+```
+The p-value is not less than 0.05, we therefore cannot reject the null hypothesis. **Result: data normal; use parametric tests.**
+
+```{r}
+# sc
+shapiro.test(df$sus[df$notation == "sc"])
+```
+The p-value is not less than 0.05, we therefore cannot reject the null hypothesis. **Result: data normal; use parametric tests.**
+
+The general result is, that from the three groups one group has not normal data. Depending on the test (Lilliefors or Shapiro Wilk it is kv or sc being not normal. We therefore perform **non-parametric tests** for the one way ANOVA. That is the Friedman test (which is the counterpart to the one-way ANOVA).
+
+### Friedman Test (One-way ANOVA)
+
+We use the non-parametric alternative to the one-way ANOVA - the Friedman Test.
+
+Links I used:\
+(1) https://bjoernwalther.com/friedman-test-in-r-rechnen/ \
+(2) https://datatab.net/tutorial/friedman-test \
+(3) https://www.datanovia.com/en/lessons/friedman-test-in-r/ \
+(4) https://www.sheffield.ac.uk/media/30596/download
+
+
+(1) Using native Friedman test in R
+```{r}
+friedman.test(df$sus, df$notation, df$subject)
+```
+
+(2) Using Friedmna test from rstatix
+```{r}
+friedman_test(df, sus ~ notation | subject)
+```
+
+Null hypothesis of no difference between three groups can be rejected because p is smaller than 0.05. We don't know yet between which groups.
+
+### Effect Size
+
+Compute Kendall's w (omega) for reporting effect size of Friedman test in general.
+
+```{r}
+friedman_effsize(df, sus ~ notation | subject, ci=TRUE, nboot=1000)
+```
+
+Result is a ***small effect size*** omega 0.08678085.
+
+### Posthoc Test: Pairwise Comparison
+
+Using Nemenyi-Wilcoxon-Wilcox test for pairwise comparison and effect size calculation. Note that Tukey HSD is not an option because it is for parametric tests (one-way ANOVA). Friedman Test is a non-parametric test (not normal data) - we therefore need to use an appropriate posthoc test such as Nemenyi test.
+
+Source: https://rcompanion.org/handbook/F_10.html
+
+#### Nemenyi Test
+```{r}
+frdAllPairsNemenyiTest(sus ~ notation | subject, data = df)
+```
+
+##### Effect Size for pairwise difference (nemenyi)
+
+Source: https://bjoernwalther.com/friedman-test-in-r-rechnen/
+```{r}
+# p.adjust = "none" for frdAllPairsNemenyiTest
+cnlsc <- 0.016/3
+kvsc <- 0.045/3
+
+z1 <- qnorm(cnlsc/2)
+z2 <- qnorm(kvsc/2)
+
+n <- friedman_test(df, sus ~ notation | subject)$n
+
+# Formel: r = z/sqrt(n)
+r1 <- z1/sqrt(n)
+r2 <- z2/sqrt(n)
+
+r1
+r2
+```
+
+This means that based on Cohen's effect sizes (small = 0.1; medium = 0.3; large = 0.5) there is:\
+- a ***medium effect size*** (r1 = 0,38) for the ***CNL-SC*** difference\
+- a ***medium effect size*** (r2 = 0.33) for the ***KV-SC*** difference
+
+##### Critical Difference Plots
+
+We now need to visualize the difference. With Friedman Test (post-hoc: Nemenyi) we use critical difference plots. These plots are included in tsutils package.
+
+Some sources that helped with comprehension:\
+(1) https://www.r-statistics.com/2010/02/post-hoc-analysis-for-friedmans-test-r-code/ \
+
+Package ***tsutils*** provides plotting for critical difference plots used with post-hoc Nemenyi test:\
+(2) https://www.rdocumentation.org/packages/tsutils/versions/0.9.4/topics/nemenyi \
+(3) https://kourentzes.com/forecasting/2019/01/14/r-package-tsutils/ \
+(4) Slide 87 onwards: https://minkull.github.io/publications/presentation-statistical-tests-2.pdf
+
+```{r}
+df_wide <- df %>% pivot_wider(names_from = c(notation), values_from = c(sus))
+df_wide <- df_wide %>% dplyr::select(sc,cnl,kv)
+result = nemenyi(df_wide,conf.level=0.95,plottype='vmcb')
+setEPS()
+postscript("plots/nemenyi_critical_difference.eps")
+nemenyi(df_wide,conf.level=0.95,plottype='vmcb')
+dev.off()
+```
+
+### Rank (Personal Preference)
+
 
