@@ -1,4 +1,4 @@
-# this file is used as a pre sandbox for the cleaner R notebook
+# this file is used as a pre sandbox for the cleaner R notebook (survey_analysis.Rmd)
 
 library(dplyr)
 if(!require(likert)){install.packages("likert")}
@@ -12,6 +12,12 @@ library(lemon)
 library(stringr)
 if(!require(ggpubr)){install.packages("ggpubr")}
 library(ggpubr)
+if(!require(coin)){install.packages("coin")}
+library(coin)
+if(!require(multcomp)){install.packages("multcomp")}
+library(multcomp)
+if(!require(tsutils)){install.packages("tsutils")}
+library(tsutils)
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
@@ -580,3 +586,99 @@ image=plot(likert(summary = df_posthoc_q4)) +
   theme(axis.text.y = element_blank())
 #save
 ggsave(file="plots/posthoc_q4_text-with-gui.svg", plot=image, width=8, height=3)
+
+# Analysis ####
+
+## Usability ####
+
+# Option 1 from Source 1
+# creates boxplots of differences - no time to dig into code for CI plots
+# Source: https://www.r-statistics.com/2010/02/post-hoc-analysis-for-friedmans-test-r-code/
+source("https://www.r-statistics.com/wp-content/uploads/2010/02/Friedman-Test-with-Post-Hoc.r.txt")  # loading the friedman.test.with.post.hoc function from the internet
+
+friedman.test.with.post.hoc(sus ~ notation | subject, data = df, to.plot.parallel = F)
+
+# Option 2 from Sources 2-4
+#tsutils
+df_wide <- df %>% pivot_wider(names_from = c(notation), values_from = c(sus))
+df_wide <- df_wide %>% dplyr::select(sc,cnl,kv)
+result = nemenyi(df_wide,conf.level=0.95,plottype='vmcb')
+result$means[2]
+result$k
+
+# Option 3 DIY - results don't really make sense - stick with Option 2
+# Source: https://bookdown.org/logan_kelly/r_practice/p09.html
+# Source: https://stackoverflow.com/a/58739988/693052 
+# try and calculate CIs of mean difference yourself
+# we have means from result object option 2above (tsutils)
+cnl_kv_diff <- result$means[3] - result$means[2]
+sc_kv_diff <- result$means[2] - result$means[1]
+sc_cnl_diff <- result$means[3] - result$means[1]
+
+
+# calculate SDs of differences
+cnl_kv_sd <- sqrt(result$means[3] + result$means[2])
+sc_kv_sd <- sqrt(result$means[2] + result$means[1])
+sc_cnl_sd <- sqrt(result$means[3] + result$means[1])
+
+# calculate 95% CI for each
+cnl_kv_ci <- cnl_kv_diff + cnl_kv_sd * qt(c(0.025, 0.975), nrow(df_wide)*2)
+sc_kv_ci <- sc_kv_diff + sc_kv_sd * qt(c(0.025, 0.975), nrow(df_wide)*2)
+sc_cnl_ci <- sc_cnl_diff + sc_cnl_sd * qt(c(0.025, 0.975), nrow(df_wide)*2)
+
+sc_cnl_ci
+
+cnl_kv_ci[1]
+cnl_kv_diff
+cnl_kv_ci[2]
+
+# plot cnl-kv
+sus_original_CI=data.frame(contrast="CNL-KV", lower=cnl_kv_ci[1], mean=cnl_kv_diff, upper=cnl_kv_ci[2])
+
+ggplot(data=sus_original_CI) +
+  geom_bar(aes(x=contrast, y=mean), stat="identity", fill="lightblue", position = position_nudge(y = 0)) +
+  geom_pointrange(mapping=aes(x=contrast, y=mean, ymin=lower, ymax=upper), size=1, color="black", fill="white", shape=22) +
+  geom_hline(yintercept = 0, linetype="dotted") +
+  scale_y_continuous(limits=c(-5,5)) +
+  coord_flip() +
+  ylab('Ratio of mean difference') +
+  xlab('CNL-KV') + 
+  labs(title = "Ratio of differences for mean levels of SUS scores", subtitle = "Tukey HSD: 95% confidence interval", caption = "Note: Mean differences and CI bounds are back-transformed to original scale as a ratio. \n Line of no effect is shifted to 1.") + theme_bw() + theme(legend.position="none",
+                                                                                                                                                                                                                                                                                      axis.title.x=element_text(size=12),
+                                                                                                                                                                                                                                                                                      axis.text.x=element_text(size=12),
+                                                                                                                                                                                                                                                                                      axis.title.y=element_blank(),
+                                                                                                                                                                                                                                                                                      axis.text.y=element_text(size=12))
+
+# plot cnl-sc
+sus_original_CI=data.frame(contrast="SC-CNL", lower=sc_cnl_ci[1], mean=sc_cnl_diff, upper=sc_cnl_ci[2])
+
+ggplot(data=sus_original_CI) +
+  geom_bar(aes(x=contrast, y=mean), stat="identity", fill="lightblue", position = position_nudge(y = 0)) +
+  geom_pointrange(mapping=aes(x=contrast, y=mean, ymin=lower, ymax=upper), size=1, color="black", fill="white", shape=22) +
+  geom_hline(yintercept = 0, linetype="dotted") +
+  scale_y_continuous(limits=c(-4,5)) +
+  coord_flip() +
+  ylab('Ratio of mean difference') +
+  xlab('CNL-KV') + 
+  labs(title = "Ratio of differences for mean levels of SUS scores", subtitle = "Tukey HSD: 95% confidence interval", caption = "Note: Mean differences and CI bounds are back-transformed to original scale as a ratio. \n Line of no effect is shifted to 1.") + theme_bw() + theme(legend.position="none",
+                                                                                                                                                                                                                                                                                      axis.title.x=element_text(size=12),
+                                                                                                                                                                                                                                                                                      axis.text.x=element_text(size=12),
+                                                                                                                                                                                                                                                                                      axis.title.y=element_blank(),
+                                                                                                                                                                                                                                                                                      axis.text.y=element_text(size=12))
+
+# plot kv-sc
+sus_original_CI=data.frame(contrast="SC-KV", lower=sc_kv_ci[1], mean=sc_kv_diff, upper=sc_kv_ci[2])
+
+ggplot(data=sus_original_CI) +
+  geom_bar(aes(x=contrast, y=mean), stat="identity", fill="lightblue", position = position_nudge(y = 0)) +
+  geom_pointrange(mapping=aes(x=contrast, y=mean, ymin=lower, ymax=upper), size=1, color="black", fill="white", shape=22) +
+  geom_hline(yintercept = 0, linetype="dotted") +
+  scale_y_continuous(limits=c(-4,5)) +
+  coord_flip() +
+  ylab('Ratio of mean difference') +
+  xlab('CNL-KV') + 
+  labs(title = "Ratio of differences for mean levels of SUS scores", subtitle = "Tukey HSD: 95% confidence interval", caption = "Note: Mean differences and CI bounds are back-transformed to original scale as a ratio. \n Line of no effect is shifted to 1.") + theme_bw() + theme(legend.position="none",
+                                                                                                                                                                                                                                                                                      axis.title.x=element_text(size=12),
+                                                                                                                                                                                                                                                                                      axis.text.x=element_text(size=12),
+                                                                                                                                                                                                                                                                                      axis.title.y=element_blank(),
+                                                                                                                                                                                                                                                                                      axis.text.y=element_text(size=12))
