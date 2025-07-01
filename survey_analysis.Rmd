@@ -495,7 +495,7 @@ q1_plot
 
 ## Results and Hypothesis Tests
 
-### Usability (SUS Score)
+### Perceived Usability (SUS-score of notation)
 
 #### Tests of Normality
 
@@ -677,12 +677,41 @@ Package ***tsutils*** provides plotting for critical difference plots used with 
 df_wide <- df %>% pivot_wider(names_from = c(notation), values_from = c(sus))
 df_wide <- df_wide %>% dplyr::select(sc,cnl,kv)
 result = nemenyi(df_wide,conf.level=0.95,plottype='vmcb')
+
+# save as eps
 setEPS()
 postscript("plots/nemenyi_critical_difference.eps")
 nemenyi(df_wide,conf.level=0.95,plottype='vmcb')
 dev.off()
+
+# save as png
+png(filename="plots/nemenyi_critical_difference.png")
+nemenyi(df_wide,conf.level=0.95,plottype='vmcb')
+dev.off()
+
+# reporting CIs of mean ranks
+cnl_mean <- result$means[3]
+cnl_lower_ci <- result$intervals[1,3] + (result$cd/2)
+cnl_upper_ci <- result$intervals[2,3] - (result$cd/2)
+
+kv_mean <- result$means[2]
+kv_lower_ci <- result$intervals[1,2] + (result$cd/2)
+kv_upper_ci <- result$intervals[2,2] - (result$cd/2)
+
+sc_mean <- result$means[1]
+sc_lower_ci <- result$intervals[1,1] + (result$cd/2)
+sc_upper_ci <- result$intervals[2,1] - (result$cd/2)
 ```
 
-### Rank (Personal Preference)
+CNL mean rank `r cnl_mean` with 95% CI [`r cnl_lower_ci`, `r cnl_upper_ci`]\
+KV mean rank `r kv_mean` with 95% CI [`r kv_lower_ci`, `r kv_upper_ci`]\
+SC mean rank `r sc_mean` with 95% CI [`r sc_lower_ci`, `r sc_upper_ci`]
+
+```{r, echo=FALSE, out.width="95%", fig.cap="Figure: plots/nemenyi_critical_difference.png"}
+knitr::include_graphics("plots/nemenyi_critical_difference.png")
+```
+Mean ranks and 95% Nemenyi confidence intervals for three notations (cnl, kv, sc). Two notations are considered significantly different if their confidence intervals do not overlap.
+
+### Personal Ranking (preference for a notation)
 
 
