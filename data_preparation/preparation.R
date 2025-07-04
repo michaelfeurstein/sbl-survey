@@ -21,6 +21,11 @@ mydata$subject <- seq.int(nrow(mydata))
 # move subject column to first position
 mydata <- mydata[,c(ncol(mydata),1:(ncol(mydata)-1))]
 
+# About the dataset
+# NOTATION01 --> Script-based notation (SC)
+# NOTATION02 --> Controlled Natural-Language notation (CNL)
+# NOTATION03 --> Key-value notation (KV)
+
 # remove unnecessary columns for SUS
 df <- subset(mydata, select=-c(submitdate,lastpage,startlanguage,startdate,datestamp,PARTICIPANTTYPE.SQ001.,PARTICIPANTTYPE.SQ002.,PARTICIPANTTYPE.SQ003.,PARTICIPANTTYPE.other.,authorHOWMANYYEARS,authorHOWMANYVIDEOS,researchHOWMANYYEARS,researchHOWMANYPUB,userHOWMANYYEARS,userHOWMANYCOURSES,INFO01,INFO02,INFO03,READCHECK,NOTATION01HELP,COMMENTS01,NOTATION02HELP,COMMENTS02,NOtATION03HELP,COMMENTS03,NOTATIONOVERVIEW,RANKING.SQ001.,RANKING.SQ002.,RANKING.SQ003.,CLAIMEFFICIENCY.SQ001.,CLAIMEFFECTIVENESS.SQ001.,TEXTasFIRSTSTEP.SQ001.,TEXTwithGUI.SQ001.,GENERALCOMMENTS))
 
@@ -40,7 +45,7 @@ for (i in 4:ncol(df)) {
 df_sc_sus <- subset(df, select=c(NOTATION01.SQ001.:NOTATION01.SQ010.))
 # controlled natural-language notation (cnl)
 df_cnl_sus <- subset(df, select=c(NOTATION02.SQ001.:NOTATION02.SQ010.))
-# key-value notation (kv)
+# key-value notation (kv) 
 df_kv_sus <- subset(df, select=c(NOTATION03.SQ001.:NOTATION03.SQ010.))
 
 # create function called calculateSUS 
@@ -476,7 +481,19 @@ names(df_post)[which(names(df_post)=="TEXTwithGUI.SQ001.")] <- "text.with.gui"
 # write to csv
 write.csv(df_post, "../data_prepared/data-post-hoc_prepared.csv")
 
+###
+### comments ####
+###
 
+df_comments <- subset(mydata, select=c(subject,id,seed,COMMENTS01,COMMENTS02,COMMENTS03,GENERALCOMMENTS))
+                      
+names(df_comments)[which(names(df_comments)=="COMMENTS01")] <- "comments.SC"
+names(df_comments)[which(names(df_comments)=="COMMENTS02")] <- "comments.CNL"
+names(df_comments)[which(names(df_comments)=="COMMENTS03")] <- "comments.KV"
+names(df_comments)[which(names(df_comments)=="GENERALCOMMENTS")] <- "comments.GENERAL"
+
+# write to csv
+write.csv(df_comments, "../data_prepared/data-comments_prepared.csv")
 
 
 

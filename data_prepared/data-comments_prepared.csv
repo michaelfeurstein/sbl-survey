@@ -1,0 +1,198 @@
+"","subject","id","seed","comments.SC","comments.CNL","comments.KV","comments.GENERAL"
+"1",1,2,2051833672,"In my opinion, by formulating the various interactions in direct succession, the structure gets lost. If they are listed below each other, it is easier and more efficient to create a structured storyboard. ","This is possibly already included in the idea, but before implementing this way of storyboarding, it seems appropriate to me to start with a number of elaborated good practices, linked to the developed learning videos.","",""
+"2",2,5,2108605786,"I can use a pair of the above notation ","","",""
+"3",3,6,980809349,"","","",""
+"4",4,8,1975677673,"","","",""
+"5",5,11,299112953,"","","Probably because of my personal background, i find that the notation is slightly redundant because of the absence of structure. 
+
+I, *personally*, would prefer something more on the line of a YAML document. However, for somebody not familiar with it, or not technically shavy, this could pose an additional challenge, and the proposed format looks simpler.
+
+By using YAML, the example above could be rewritten in this way:
+
+videos:
+    - name: video1
+      URL: https://youtu.be/0siisFJUKh4
+      chapters:
+        - name: chapter1
+          title: ""Definition of term Information Sistem""
+          timestamp: 01:10
+
+        -name: chapter2
+         title: ""An example based on the library""
+         timestamp: 02:05
+
+interactions:
+    - name: interaction1
+      title: ""What is an Information System""
+      type: multipleChoice
+      question: ""Question Text?""
+      answers: (""Answer 1"",wrong ""Answer 2"",correct)
+
+    - name: interaction2
+      title: ""Information Systems around us""
+      type: textPage
+
+modules:
+    -name: module1
+     title: ""What is an information System?""
+     playlist: interaction1, video1, interaction2
+
+",""
+"6",6,12,310649036,"I personally prefer a more visual approach. This may be accurate but it looks too abstract for me, esp. since the text may become confusingly long when question and answers are included.","Until now, the best of the portrayed approaches. Still, iÔd prefer a even more usability-friendly approach. Eg one that shows what areas will be addressed, e.g. chapters, additional questions etc and that then continues by asking one question per page ( what is the title?. How many chapters? Shall there be a question? When?  etc.    The page before would be the summarization of all entries as an information for me (user). ","Better than the one beforehand. Stll prefer a more visual approach e.g. with illustration, icons, a wizardÉ this is very code-like functional.",""
+"7",7,13,1916526994,"One problem with the notation is that chapters do not refer explicitly the video they belong to. What if we have more videos? Do we assume they refer to the last defined video item?
+
+Also, the example does not show how to use the chapters. Hopefully one can just use them as other items in the playlist.","I think this notation does not distinguish very clearly between object type (e.g. Video) and object name (the reference we use when creating the module structure). As the command resembles natural language, this is very important, because I cannot say ""There is a Chapter with URL ..."" when I am actually defining a video. Also the way we define a video and an interaction use a different formulation.
+
+If we want to make it look natural language, it needs to have some level of fuzzyness to recognize variants of  a specification, e.g. ""We have a Video with URL..."". This could introduce ambiguity and unexpected results. If such a language required to be exact (no variation in the formulation), then it would make it much more difficult to remember, compared to a ""normal"" scripting language.","This notation is not complicated or bad in itself, but we have again not a clear distinction between an object type and an object name. For instance, what tells me that the object ""chapter1"" is in fact of type ""chapter""? Does it depend on a naming convention?
+
+Again, the chapters do not refer to the video they belong to explicitly and is not clear if they can be used in a playlist the same as other objects.",""
+"8",8,16,530806819,"","","",""
+"9",9,17,290926371,"","","",""
+"10",10,18,2117931939,"I like the basic idea of this one a lot better (much more direct) but it feels much more technical, which I think could put people off! (also the use of hyphens & brackets would require training and again creates potential for error)
+
+The overall structure of the first example made more sense to me (Module title + video URL at the top).
+","would these be text blocks / templates or would you need to type the whole thing out each time? It seems rather wordy to me and I think having to type out the whole phrase would lead to more space for error (e.g. I'd always be tempted to write ""Chapter 1 is called..."" instead of ""is titled""). 
+I think it might work better to have simpler templates, e.g.
+Module: 
+Title: 
+
+Chapter 1:
+Title: 
+Timestamp: 
+
+etc.","This is definitely the best option, i.e. what I was looking for in the other two options!
+the ""storyboard"" element is still a bit confusing if the functions (?) are grouped by function instead of in the order you want it to appear (playlist). It would be more logical for me to list it like this:
+
+interaction1
+video1
+chapter1
+chapter2
+interaction2","It's not entirely clear what the text-based video is being compared to (more efficient/effective than what?). I'm also not sure what a GUI is (boxes/containers/tabs/windows rather than words?). 
+Using text-based input is definitely easier (=more effective) and quicker (=more efficient) than trying to program/code something, as I'd always need an additional IT person to help me do this.
+They'd all need a bit of training to use but I think the key-value notation is as easy to learn as the natural-language and feels a LOT more efficient. 
+FYI, I used the video function on LearningApps.org and that was pretty intuitive for cutting and inserting questions/titles (but not answer options) into a YouTube video. It would be great to have the means to embed LernaktivitŠten from Learn so that you could also extract students' points, though.  "
+"11",11,19,1048922923,"","","",""
+"12",12,20,1736209271,"","","",""
+"13",13,21,1638842287,"I personally like this notation but I would have further questions, e.g., could you accomplish the same when you would write : chapter ch1 - title ""Definition of the term IS"" -timestamp 01:10?
+","If you implement this kind of a notation, the users would first have to learn the syntax of the notation. In this example, the syntax is (in my opinion) more complex to learn than in the previous two notation proposals. To me, this looks very inconvenient. I would rather prefer any of the previous two notations that you presented than this one.
+
+It will be difficult for the novice users to learn the vocabulary of this notation. For example: ""Chapter 1 starts at timestamp"". Why not ""Chapter 1 begins at timestamp""? I can imagine the more commands you implement, the more difficult will it be for the users to memorize all the vocabulary which is defined in this notation. ","The notation is clear, but could be made shorter, e.g. define title and timestamp in one line.  This example is very simple. What if we had a more complex setting where you might have to nest the commands? 
+
+I think that I would need the support of a technical person*** to be able to use this notation. -> in the beginning probably, unless there is some tutorial or a well-written documentation on how to use this notation. But that is the case with most of new notations. One cannot just know it if you never learned it before.
+
+I would imagine that most people would learn to use this notation very quickly. -> I am not that confident that most people would learn this quickly because in my experience, people are sometimes ""scared"" of notations and prefer visual editors where you can click around.","""A text-based approach could be more efficient* in order to create a video-based learning module"" -> more efficient than a graphical editor? I think not, for most of the users. It is more convenient to click and add an element than define what you want to do via text. 
+
+Effectiveness -> in general, I would say that using notation to add interactive elements and sections to your video might give you more flexibility in designing the learning materials. In this sense, it is effective because it helps you reach your desired or intended goal. However, if effectiveness only refers to ""By formulating text you could complete the task of setting a title."" and ""By formulating text you could complete the task of creating a chapter at a timestamp with a defined title."", then a graphical editor could accomplish the same goal with less cognitive load on the user. Click, write the title, done.
+
+Using a textual notation as a first step -> I can imagine that some would watch their video, immediately use GUI to generate titles (structure), and then use the textual notation to provide more details that are otherwise difficult or tiresome to accomplish in a GUI.
+
+""Using a textual notation in combination with a graphical user interface (GUI)"" -> yes, absolutely. I only saw this question after I had already commented on the previous questions above. I believe this approach (a combination of both, where textual notation is meant to give more flexibility and convenience to work on the details) is the most user-friendly approach.
+
+
+"
+"14",14,22,1683345284,"","As a software developer, this notation gives too much freedom. I wouldn't be able to anticipate what a valid syntax would be.","",""
+"15",15,23,2055219255,"At the first glance it looks more complex than the first one. The first one is probably easier to understand and interpret, for someone who is new to this.","Maybe it is due to some experience in coding, but I don't like this one. For me, it is too unstructured, and with using sentences I would not be sure if I used the correct key words. And once you know the key words, you probably only write them down and not the sentence, anyway. 
+I think looking for and finding errors in the code would be much harder in this notation than in the others.","",""
+"16",16,24,1385493348,"See previous reply","I would still use the methods I have used for years, difficult to change from a system that does work for me, though I am capable to drawing the images etc., so that is an advantage in my case, I have seen others without those skills having issues with the aesthetics of video production.","I am of the school of visual storyboards, having degrees in the Arts and having be a head of an Art, Design and Media department in the past, before moving into other areas.
+
+Therefore, I would use the systems I know and have used over many, many years, also working with developers and designers etc.,","Some people are word orientated, others visual, you need both when it comes to the creation of online/video learning. 
+
+Visuals can inform so much, where words have to be read and understood, We now live in a media rich world and it is so important I think that we take the creative possibilities of video etc., to enhance the learning experience, to that end the skills required must be developed, and I don't think, dare I say that many educators at present have these skills or are wishing to develop them. That is certainly the findings I have with colleagues both within and outside of my present institution."
+"17",17,25,1976607728,"What other interactions are possible?","I guess this notation could appear easier to used for ""less technical people"".","",""
+"18",18,26,603242395,"","I think that this type of storyboard isn't complex, but still not very neatly. There is only one level (and f.e. no table-structure) and therefore a lot of redundacy in the wording (This interaction ....).","",""
+"19",19,28,213904330,"this would be more or less my preferred syntax. Each scene/activitiy is defined consistently and can then be packed as a module. ","got the point here. I think this syntax is more flexible in a logic way then the syntax suggested before. Nevertheless, I think i would struggle with the long key words like ""this interaction offeres the answer ..."" ;-)","as far as I understood, I have to change interaction1 four times to interaction2 if i wanted to insert a new interaction before interaction1. Furthermore, I have no idea when these interactions will show up (after the chapter?) If so, i am limited to the principle ""one chapter = one interaction"". Well, I think this syntax is ok, but I would prefer to aggregate relevant information into a treelike format or object.... I do not think that an ""average teacher"" would be willing (in my field) to learn this syntax.",""
+"20",20,29,1524781293,"","","",""
+"21",21,30,2020808474,"","","",""
+"22",22,31,216425274,"","","",""
+"23",23,32,1460590031,"This I think is the most intimidating of the examples so far","See previous comment","I can see if proper have any coding experience that this would be fine and familiar - I think a lot of colleagues who have no coding experience would find this quite intimidating. ",""
+"24",24,33,790342637,"","","","I'm still learning how to make videos, I'm not an experienced user ... so I guess my answers won't be useful.
+Anyway: good work (and good luck) on your phd!
+
+"
+"25",25,34,1700181835,"","","",""
+"26",26,35,1162175495,"","","",""
+"27",27,36,450050402,"","","",""
+"28",28,37,436751504,"","Not appealing, really, but contentwise, I guess it does what it is supposed to. ","Module structure is now missing. It would make sense to me to reflect the module structure by ordering chapters and interactions respectively. ","I would rather use a GUI editor that somehow creates this text-based storyboard in the background. To me, learning the keywords (and realistically there would be many more than the ones we just saw) would be too time consuming. "
+"29",29,39,1449684040,"","","",""
+"30",30,40,2130912221,"","Clear introduction necessary to raise confidence in authors","",""
+"31",31,43,1876369982,"","","",""
+"32",32,45,904296725,"","For me it would be more natural to use a notation like this, because I don't have experience with programming languages. However I am not sure if this would work comparably accurate.","I think this notation form would be a good compromise. It seems to me more intuitive than the first one but less extensive than the second one.","The more intuitive, effective and efficient the system, the more it will be used. It should not take too much time to learn how to use a new notation form. I guess most people who produce and use educational videos today don't have a background in programming. Thus, the easiest way would be a GUI where you can directly insert questions, links etc. in a video. I don't really see the necessity of having a text based notation."
+"33",33,53,944159441,"","","",""
+"34",34,54,32789223,"Well it looks like a programming language. In my opinion, many teachers not familiar with IT and programming languages will be discuraged by this notation.
+I judge myself as being trained in reading and understanding several programming languages. For me it heavily depends on how many kewords exist and how complex this notation is in the end. If possible, use only a few basic keywords. When thinking about Moodle questionnaires and all the features implemented just for questionnaires or exams, the keywords and settings could get VERY complex.
+
+I also think that a more structured approach would be much better. Use Linebreaks to make the notation look less like a programming language:
+e.g.:
+instead of
+
+'interaction act1 -title ""What is an Information System"" -type multiple Choice -question ""Question Text?"" -answers  ((""Answer 1"", false) (""Answer 2"", correct))'
+
+use
+
+'interaction act1
+   -title: ""What is an Information System""
+   -type: multiple Choice
+   -question: ""Question Text?""
+   -answers:
+      -answer: ""Answer 1"" = false
+      -answer: ""Answer 1"" = correct'
+
+
+In this notation it is unclear to me:
+- what the command <chapters> exactly does. Is its purpose a jump point in the video or a ""chapter"" for an outline?
+Why creating a chapter in a learning video at all? The concentration span of student is usually only 5 to 10 minutes. Hence, videos longer than 5-10 minutes should be split into smaller Videos and Chapters get obsolete. I dont know how learning of students is changed, if they are provided chapters in a longer video. They might skip important parts.
+- what is the purpose of the command <module>? I have no clue at all.","Ahh, in this version the idea of the command <module> gets clearer. It provides the timeline for the interactions and the video.
+
+If this is a storyboard, I would use a different hiererchy to describe a lerarning journey or, more correct, a learning path. For this purpose, I would introduce ""scenes"".
+A chapter may consist of multiple ""scenes"", where each ""scene"" consist of a video or a questionnaire or whatever.
+I think, if you would use a more hierarchical approach, the story board would be much easier to read.","I think the notation might get cumbersome to some extent, as reusing keywords may lead to errors. e.g. the title of interaction 1 and the title of the module.
+
+Also in this notation I do not get the purpose of the <module> keyword.","As I already wrote earlier:
+Use a hierarchical structure (and some kind of object oriented approach - i.e. group elements according to the element, they are placed in).
+Use ""scenes"", as they directly relate to story boards and would make a lot of sense for structuring the content.
+Chapter (Learning path level) > ""Scene"" (Content level) > Objects (Video etc.) > Settings for objects"
+"35",35,55,1776216516,"see comments from before as this approach has the same problems I can imagine as the previous one. If I were to be going down this approach, I'd be looking to do something like 'live coding' does for music performance so at least I can see the effect of code constructs has on the eventual video output. Essentially, having a live view mode that interprets the text as I type.
+
+from before: Video is a visual medium, so the text based doesn't have any anchors. For example, how am I going to know which time code relates to what? What are the transitions going to look like, what is the sequencing of cause and effect patterns. The example is very simplistic in terms of how the text relates to the temporal aspects of the video communication. I would think that something like a powerpoint based approach that has simple transition instructions on a per-slide bases would provide a simpler experience to link text to video. Thus, I would think this is a very cumbersome approach that wouldn't be providing enough value compared to the effort to learn and use it.","Video is a visual medium, so the text based doesn't have any anchors. For example, how am I going to know which time code relates to what? What are the transitions going to look like, what is the sequencing of cause and effect patterns. The example is very simplistic in terms of how the text relates to the temporal aspects of the video communication. I would think that something like a powerpoint based approach that has simple transition instructions on a per-slide bases would provide a simpler experience to link text to video. Thus, I would think this is a very cumbersome approach that wouldn't be providing enough value compared to the effort to learn and use it.","same comment as before","The examples provided indicate to me that the text based approach doesn't seem to bring much benefit to the video creation problem as the components indicated are not where all the time is spent making the videos. Tiemcodes are very cumbersome to use in text so having diectics and temporal referencing tend to make things much easier when using text. Check out the CHI paper by Yarmand et al, 2020 that discusses the use of referencing video in text to avoid timecode, for example. "
+"36",36,56,1197490048,"","","As someone with experience in computer science, I feel like I could use this notation but it would not be appropriate for a general audience.",""
+"37",37,58,1209479113,"","","",""
+"38",38,59,1444407963,"","","",""
+"39",39,62,532468672,"This is not my world. I am convinced, that I have to answer other questions before I define chapters and interactions with time-marks.
+What I like (later in the process) is the idea of a priority with two chapters and two interactions. This may lead to clarity and may support creativity.","","I am not convinced, that this tool will support me creating a video for the goal of learning.",""
+"40",40,65,140112808,"","As much as I like ""natural language"", if the inputs are to be text-based, the syntax should follow stricter rules. A similarity to a CSS file or a simple programming language like JavaScript would make more sense.
+
+e.g. like this:
+
+part1 {
+ModuleTitle = ""Title"";
+VideoURL = ""https:/...."";
+Chapter1 = ""Chapter 1"";
+}","This is better than the first example.","I guess it is really difficult to find a sweet spot for such an application. There are many different people in this field who create video-based learning modules. Nerds like me would do well to very well with the key-value or even script principle. Less experienced users who have perhaps never worked in a command line or programming environment will certainly shy away here."
+"41",41,66,1176156196,"","","",""
+"42",42,67,49407394,"","","",""
+"43",43,68,1242304743,"","seems to me beginner friendly for people who have little experience in programming","","i am a text affine person so i think the method would be good for me. However, I see hurdles for less ""text affine"" people."
+"44",44,71,1227483714,"I might have missed something, but I didn't get the purpose of the notation. For the people creating such storyboards, an interactive GUI would be far easier. This is not the best example Ð but what I'm working currently is confidential, and this is the closest analog Ð but from my user studies, I've found that even expert technical users find ""data entry"" sort of tasks easier with a GUI like this: https://www.mathworks.com/help/optim/ug/optimize-live-editor-task-effective-use.html. The Live Editor Task interface abstracts away the need to type a lot of the notation, while generating and presenting the notation if a user is interested!
+
+It is easy to makes mistakes while specifying ""options"" (""answers"") in nested parenthesis, and you'd need a good parser to provide meaningful error messages. I also wonder if the flag-based approach (for example, ""-title"") would be easy to grasp for non-technical people.
+
+The module definition does not need the chapters to be input, so I guess they're implicitly considered chapters of the video. What if there are multiple videos? It would be good to make it explicit.
+
+I'm guessing the textPage type will accept a body of text (if not, I'd call it something else), and it's not going to be very elegant to present it in this notation, especially with multiple paragraphs and line spacing.
+
+What I like about the notation is that it is self-explanatory, so if I were to come back to it later, it's easy to understand and add to. I'd have to refer to the documentation for additional syntaxes.","This notation is more natural than the previous, but I wonder if it will feel more heavyweight to type out everything. I'd prefer the previous notation, but I expect most people to prefer this to begin with, until they have large modules. I haven't worked with such a notation before, and am curious how tolerant it is of different styles of writing and grammatical mistakes, and how they're handled.
+
+I wonder if the way to define an interaction should be ""Interaction 1  is a ... question ..."" followed by the definition of the question, rather than defining the interaction any further ""The [first] question holds the text ..."" rather than ""This interaction holds the text ..."". This would allow better support an interaction being multiple questions, say, and also .","This notation feels like a good middle ground between the previous two.","In my previous comments, I mentioned Live Editor Tasks in MATLAB. One downside is that they're currently one-way. The GUI generates code, but the code cannot be edited. You can copy-paste and edit the code, but that isn't reflected in the GUI. Your last question asks about the sweet spot ÐÊa way to seamlessly switch between the textual notation and GUI, which would offer flexibility to users. I do wonder what the use of the textual notation would be afterwards. Unlike code generated by Live Editor Tasks which can be used with other manually-written code (that could be anything supported by the programming language), I'm not sure you mentioned any potential for further use of the textual notation in this questionnaire."
+"45",45,72,1660934437,"","","Are there more options for interaction exercises than multiple choice and text questions?","""Natural language"" and ""Key-Value"" would both make it to place 1. I see the difference. However, this difference is so small that I do not have any preferences."
+"46",46,74,416517917,"","","",""
+"47",47,76,1925785819,"","","",""
+"48",48,77,2081927725,"This seems to be fast to learn for a developer or tech savvy person, but not for people in general I suppose.","I wonder how ""strict"" the terms would have to be, for example chapter 1 / chapter #1, starts at timestamp 00:15/start at 00:15/start at time 00:15","This seems to be a bit more complex, as you would have to use the EXACT term in the EXACT order",""
+"49",49,79,326882635,"","","",""
+"50",50,80,235934462,"why use a unix syntax to describe data structures ?","old school VBA style, it is not useful to make it look like english","JSON would be more straightforward rather than using spaces to delimit sections, verbs and arguments",""
+"51",51,81,2014659586,"I think this one will be the hardest to use for people who have never done something similar before. Although it is short and practical, I would still prefer the previous example as it is very intuitive.","This example is very intuitive (more than the previous one)","This seems very basic and easy to use, however, it is a far stretch from creating a whole storyboard (as it only includes the different titles and the short question).
+I am creating similar (but obviously a lot less advanced and developed) videos with Power Point, which is a bit of a pain as this is not what Power Point was developed for (icons sometimes shift, when the video is created; the transitions between slides are visible (or audible), which makes it seem less like a ""proper"" video). 
+So I am very much looking forward to new solutions and techniques as the one you are currently testing! :)","I am really looking forward to new approaches of how to create more advanced video content!"
+"52",52,82,1778131956,"worst","I think the notation is too verbose (e.g., ""there is a video with the URL"")","better",""
+"53",53,83,2109237847,"This would be a language made for developers, who might be highly efficient after learning the most important elements; a good documentation/online help might be necessary. I slightly prefer this variant to the natural language based notion, which however is given due to my background.","Might be a lot of effort to produce such scripts if everything has to be written from scratch; the notion is definitely none to get warm with very quickly (learnability) but might be good to produce videos effectively","For me this is the worst variant of a scripting language to produce learning videos; it is hart to learn (learnability) and hart to remember (memorability), which might be a bad thing for efficient working. It clearly lacks structure and ""verbs"" which would help to learn and memorize constructs. Of the three variants of this scripting language, this is clearly the worst.",""
+"54",54,84,1012554506,"","","",""
+"55",55,85,416935227,"","","",""
+"56",56,NA,NA,"","","",""
