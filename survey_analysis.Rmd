@@ -228,7 +228,7 @@ df %>%
   summarize(mean = mean(sus), sd = sd(sus), min = min(sus), max = max(sus), med = median(sus), q1 = quantile(sus, 0.25), q3 = quantile(sus, 0.75))
 ```
 
-**Mean Difference:** For reporting of unstandardized mean difference:
+**Mean Difference:** For reporting of unstandardized mean difference (unstandardized effect size):
 ```{r}
 ##### mean difference ####
 # values
@@ -434,7 +434,6 @@ ggsave(file="plots/survey_ranking_stacked.eps", plot=survey_ranking_stacked, wid
 survey_ranking_stacked
 ```
 
-
 ### Post-hoc Questions
 
 The following questions were asked after assessing the perceived usability for all three notations.
@@ -487,6 +486,7 @@ q1_plot <- plot(likert(summary = df_posthoc_all), group.order = c("Q1", "Q2", "Q
 image=q1_plot
 #save
 ggsave(file="plots/posthoc_questions.svg", plot=image, width=7, height=5)
+ggsave(file="plots/posthoc_questions.eps", plot=image, width=7, height=5)
 # print  
 q1_plot
 ```
@@ -678,7 +678,7 @@ result = nemenyi(df_wide,conf.level=0.95,plottype='vmcb')
 
 # save as eps
 setEPS()
-postscript("plots/nemenyi_critical_difference.eps")
+postscript("plots/nemenyi_critical_difference.eps", height = 4)
 nemenyi(df_wide,conf.level=0.95,plottype='vmcb')
 dev.off()
 
