@@ -598,7 +598,8 @@ Links I used:\
 (1) https://bjoernwalther.com/friedman-test-in-r-rechnen/ \
 (2) https://datatab.net/tutorial/friedman-test \
 (3) https://www.datanovia.com/en/lessons/friedman-test-in-r/ \
-(4) https://www.sheffield.ac.uk/media/30596/download
+(4) https://www.sheffield.ac.uk/media/30596/download \
+(4) Threats to Validity - Friedman Test: https://www.r-bloggers.com/2012/02/beware-the-friedman-test/
 
 
 (1) Using native Friedman test in R
